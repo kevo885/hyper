@@ -14,8 +14,10 @@ function userTable()
         if (!mysqli_stmt_execute($stmt))
             exit("Could not delete user");
     }
-    mysqli_stmt_prepare($stmt, "select * from user");
 
+    if (isset($_POST['update'])) {
+    }
+    mysqli_stmt_prepare($stmt, "select * from user");
     if (!mysqli_stmt_execute($stmt))
         exit(mysqli_stmt_error($stmt));
 
@@ -47,9 +49,9 @@ function userTable()
                 <td><?php echo $gender; ?></td>
                 <td>
                     <div class="btn-group">
-                        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0 arrow-none" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='dripicons-dots-3'></i></button>
+                        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0 arrow-none" data-bs-toggle="dropdown"><i class='dripicons-dots-3'></i></button>
                         <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
-                            <a class="dropdown-item d-flex align-items-center" href="#"><i class='mdi mdi-account-edit me-1'></i>Edit</a>
+                            <button type="button" class="dropdown-item d-flex align-items-center btn btn-sm d-inline-flex align-items-center btn-rounded" data-bs-toggle="modal" data-bs-target="#primary-header-modal"><i class='mdi mdi-account-edit me-1'></i>Edit</button>
                             <a class="dropdown-item d-flex align-items-center" href="#"><i class='mdi mdi-eye me-1'></i>View</a>
                         </div>
                     </div>
@@ -58,7 +60,26 @@ function userTable()
             </tr>
             </form>
         <?php  } ?>
+    
     </tbody>
+    <!-- specific user -->
+    <div id="primary-header-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-colored-header bg-primary">
+                <h4 class="modal-title" id="primary-header-modalLabel">Modal Heading</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <?php  }
 
 function coursesTable()
@@ -94,22 +115,22 @@ function coursesTable()
         <?php
         while (mysqli_stmt_fetch($stmt)) {
         ?>
-                <tr>
-                    <td><?php echo $courseID; ?></td>
-                    <td><?php echo $courseName; ?></td>
-                    <td><?php echo $courseNumber; ?></td>
-                    <td><?php echo $desc; ?></td>
-                    <td>
-                        <div class="btn-group">
-                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0 arrow-none" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='dripicons-dots-3'></i></button>
-                            <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
-                                <a class="dropdown-item d-flex align-items-center" href="#"><i class='mdi mdi-account-edit me-1'></i>Edit</a>
-                                <a class="dropdown-item d-flex align-items-center" href="#"><i class='mdi mdi-eye me-1'></i>View</a>
-                            </div>
+            <tr>
+                <td><?php echo $courseID; ?></td>
+                <td><?php echo $courseName; ?></td>
+                <td><?php echo $courseNumber; ?></td>
+                <td><?php echo $desc; ?></td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0 arrow-none" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='dripicons-dots-3'></i></button>
+                        <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
+                            <a class="dropdown-item d-flex align-items-center" href="#"><i class='mdi mdi-account-edit me-1'></i>Edit</a>
+                            <a class="dropdown-item d-flex align-items-center" href="#"><i class='mdi mdi-eye me-1'></i>View</a>
                         </div>
-                        <button class="btn btn-sm d-inline-flex align-items-center btn-rounded" type="submit" name="delete" value="<?php echo $courseID; ?>"><i class='mdi mdi-delete'></i></button>
-                    </td>
-                </tr>
+                    </div>
+                    <button class="btn btn-sm d-inline-flex align-items-center btn-rounded" type="submit" name="delete" value="<?php echo $courseID; ?>"><i class='mdi mdi-delete'></i></button>
+                </td>
+            </tr>
             </form>
         <?php  } ?>
     </tbody>
