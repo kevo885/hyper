@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "inc/head.php";
 include_once "inc/header.php";
 ?>
@@ -22,7 +23,12 @@ include_once "inc/header.php";
                     <p class="mb-4 font-16 text-white-50">Hyper is a fully featured dashboard and admin template
                         comes with tones of well designed UI elements, components, widgets and pages.</p>
 
-                    <a href="dashboard/dashboard.php"  class="btn btn-success">Dashboard <i class="mdi mdi-arrow-right ms-1"></i></a>
+                    <?php if(isset($_SESSION['id']))
+                    echo '<a href="dashboard/dashboard.php" class="btn btn-success rounded-pill d-none d-lg-inline-flex"> <i class="uil-globe me-1"></i>Dashboard</a>';
+
+                    else
+                    echo '<a href="auth/login.php" class="btn btn-dark rounded-pill d-none d-lg-inline-flex"> <i class="mdi mdi-account-circle me-1"></i>Login</a>';
+                    ?>
                 </div>
             </div>
             <div class="col-md-5 offset-md-2">

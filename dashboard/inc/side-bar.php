@@ -64,9 +64,21 @@
                     </a>
                 </li>
                 <li class="side-nav-item">
+                    <a href="settings.php" class="side-nav-link">
+                        <i class="uil-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li class="side-nav-item">
                     <a href="../index.php" class="side-nav-link">
                         <i class="uil-home"></i>
                         <span>Home</span>
+                    </a>
+                </li>
+                <li class="side-nav-item">
+                    <a href="../inc/logout.php" class="side-nav-link">
+                        <i class="uil-exit"></i>
+                        <span>Logout</span>
                     </a>
                 </li>
             </ul>

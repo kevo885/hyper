@@ -13,9 +13,9 @@ include_once "../inc/.env.php";
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Hyper</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                            <li class="breadcrumb-item active">Data Tables</li>
+                        <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                            <li class="breadcrumb-item active"><a><?php echo ucfirst(basename(__FILE__, '.php'))?></a></li>
+
                         </ol>
                     </div>
                     <h4 class="page-title">Data Tables</h4>
