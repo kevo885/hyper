@@ -29,8 +29,6 @@ include_once "../inc/.env.php";
                         <h4 class="header-title">Courses table</h4>
                         <div class="tab-content">
                             <div class="tab-pane show active" id="alt-pagination-preview">
-                                <form action="" method="post">
-                                    <table id="alternative-page-datatable" class="table dt-responsive nowrap">
                                         <!-- print user table -->
                                         <?php userTable(); ?>
                                     </table>
