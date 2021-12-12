@@ -75,3 +75,7 @@
             <!-- Sidebar -left -->
 
         </div>
+        <div class="content-page">
+    <div class="content">
+        <!-- Alert message -->
+        <?php include_once "../inc/alerts.php"; ?>

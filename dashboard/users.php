@@ -28,6 +28,9 @@ include_once "../inc/.env.php";
                 <div class="card">
                     <div class="card-body">
                         <h4 class="header-title">Courses table</h4>
+                        <?php   $current_file_path = dirname(__FILE__);
+                        echo $current_file_path;
+?>
                         <div class="tab-content">
                             <div class="tab-pane show active" id="alt-pagination-preview">
                                 <form action="" method="post">
