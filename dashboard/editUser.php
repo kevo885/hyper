@@ -36,7 +36,7 @@ else
 
                         <i class="rounded-circle avatar-lg img-thumbnail fas fa-user fa-4x"></i>
 
-                        <h4 class="mb-0 mt-2"><?php echo $user_name ?></h4>
+                        <h4 class="mb-0 mt-2"><?php echo $name ?></h4>
                         <p class="text-muted font-14"></p>
                         <a href="../inc/logout.php" class="btn btn-primary btn-sm mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#personalDetails" aria-expanded="false" aria-controls="personalDetails">
                             <i class="mdi mdi-chevron-down-circle-outline me-1"></i>Update</a>
@@ -65,7 +65,7 @@ else
 
                         <div class="text-start mt-3">
                             <h4 class="font-13 text-uppercase">About me</h4>
-                            <p class="text-muted mb-2 font-13"><strong>Full Name :</strong> <span class="ms-2"><?php echo $user_name ?></span></p>
+                            <p class="text-muted mb-2 font-13"><strong>Full Name :</strong> <span class="ms-2"><?php echo $name ?></span></p>
                             <p class="text-muted mb-2 font-13"><strong>User ID :</strong> <span class="ms-2 "><?php echo $userID ?></span></p>
                             <p class="text-muted mb-2 font-13"><strong>Username :</strong> <span class="ms-2 "><?php echo $username?></span></p>
                             <p class="text-muted mb-2 font-13"><strong>Phone number :</strong><span class="ms-2"><?php echo $phone ?></span></p>

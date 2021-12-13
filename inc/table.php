@@ -50,8 +50,7 @@ function userTable()
                         <div class="btn-group">
                             <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0 arrow-none" data-bs-toggle="dropdown"><i class='dripicons-dots-3'></i></button>
                             <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
-                                <!-- what to add to populate modal below with selected record??? -->
-                                <a href="../dashboard/editUser.php?id=<?php echo $id ?>" class="dropdown-item d-flex align-items-center btn btn-sm d-inline-flex align-items-center btn-rounded" ><i class='mdi mdi-account-edit me-1'></i>Edit</a>
+                                <a href="../dashboard/editUser.php?id=<?php echo $id ?>" class="dropdown-item d-flex align-items-center btn btn-sm d-inline-flex align-items-center btn-rounded"><i class='mdi mdi-account-edit me-1'></i>Edit</a>
                                 <a class="dropdown-item d-flex align-items-center" href=""><i class='mdi mdi-eye me-1'></i>View</a>
                             </div>
                         </div>
@@ -62,26 +61,8 @@ function userTable()
             <?php  } ?>
 
         </tbody>
-        <!-- Modal -->
-        <!-- <div id="primary-header-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header modal-colored-header bg-primary">
-                        <h4 class="modal-title" id="primary-header-modalLabel">Modal Heading <?php echo $id ?></h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-    <?php  } ?>
-    <?php
+    <?php  } 
+
     function coursesTable()
     {
         global $stmt;
