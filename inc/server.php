@@ -28,10 +28,10 @@ function checkPhone()
         $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
 
         if (isset($_POST['add_user'])) {
-            header("location: ../dashboard/admin.php");
+            header("location: ../dashboard/users.php");
             exit();
         } else {
-            header("location: sign-up.php");
+            header("location: ../register.php");
             exit();
         }
     }
@@ -41,7 +41,7 @@ function validDate()
     $d = DateTime::createFromFormat('m/d/Y', $_POST['dob']);
     return $d && $d->format('m/d/Y') == $_POST['dob'];
 }
-// sign up / create admin (user) 
+// sign up / create users (user) 
 if (isset($_POST['sign-up']) || isset($_POST['add_user'])) {
     // checks if username exists already
     $check_username = "SELECT * FROM user WHERE username=?";
@@ -61,10 +61,10 @@ if (isset($_POST['sign-up']) || isset($_POST['add_user'])) {
         $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
 
         if (isset($_POST['add_user'])) {
-            header("location: ../dashboard/admin.php");
+            header("location: ../dashboard/users.php");
             exit();
         } else {
-            header("location: sign-up.php");
+            header("location: ../auth/register.php");
             exit();
         }
     }
@@ -76,10 +76,10 @@ if (isset($_POST['sign-up']) || isset($_POST['add_user'])) {
             $_SESSION['message'] = "Error: Invalid date - must be in format mm/dd/yyyy";
             $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
             if (isset($_POST['add_user'])) {
-                header("location: ../dashboard/admin.php");
+                header("location: ../dashboard/users.php");
                 exit();
             } else {
-                header("location: sign-up.php");
+                header("location: ../auth/register.php");
                 exit();
             }
         }
@@ -97,10 +97,10 @@ if (isset($_POST['sign-up']) || isset($_POST['add_user'])) {
                 $_SESSION['message'] = "Error: Age must be at least 18 years old and date of birth cannot be in the future ";
                 $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
                 if (isset($_POST['add_user'])) {
-                    header("location: ../dashboard/admin.php");
+                    header("location: ../dashboard/users.php");
                     exit();
                 } else {
-                    header("location: sign-up.php");
+                    header("location: ../auth/register.php");
                     exit();
                 }
             }
@@ -115,10 +115,10 @@ if (isset($_POST['sign-up']) || isset($_POST['add_user'])) {
                 $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
 
                 if (isset($_POST['add_user'])) {
-                    header("location: ../dashboard/admin.php");
+                    header("location: ../dashboard/users.php");
                     exit();
                 } else {
-                    header("location: sign-up.php");
+                    header("location: ../auth/register.php");
                     exit();
                 }
             }
@@ -129,11 +129,11 @@ if (isset($_POST['sign-up']) || isset($_POST['add_user'])) {
 
                 if (isset($_POST['add_user'])) {
                     $_SESSION['message'] = "Successfully added $_POST[username]";
-                    header("location: ../dashboard/admin.php");
+                    header("location: ../dashboard/users.php");
                     exit();
                 } else {
                     $_SESSION['message'] = "Successfully created account! Sign in below";
-                    header("location: login.php");
+                    header("location: ../auth/login.php");
                     exit();
                 }
             }

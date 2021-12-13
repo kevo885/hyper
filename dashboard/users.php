@@ -2,7 +2,6 @@
 include_once "inc/head.php";
 include_once "inc/header.php";
 include_once "inc/side-bar.php";
-include_once "../inc/.env.php";
 ?>
 <div class="content-page">
     <div class="content">
@@ -17,7 +16,7 @@ include_once "../inc/.env.php";
                             <li class="breadcrumb-item active"><a><?php echo ucfirst(basename(__FILE__, '.php'))?></a></li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Data Tables</h4>
+                    <h4 class="page-title">User table</h4>
                 </div>
             </div>
         </div>
@@ -26,7 +25,6 @@ include_once "../inc/.env.php";
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">Courses table</h4>
                         <div class="tab-content">
                             <div class="tab-pane show active" id="alt-pagination-preview">
                                         <!-- print user table -->

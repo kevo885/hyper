@@ -16,7 +16,7 @@ include_once "../inc/.env.php";
 
         <!-- App css -->
         <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="ligh-style" />
+        <link href="../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="dark-style" />
         <link href="../assets/css/app-modern-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
 
     </head>

@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-include_once "../inc/table.php";
+include_once "table.php";
 
 if(!isset($_SESSION['username']))
 {

@@ -27,7 +27,7 @@ include_once "inc/header.php";
                     echo '<a href="dashboard/dashboard.php" class="btn btn-success rounded-pill d-none d-lg-inline-flex"> <i class="uil-globe me-1"></i>Dashboard</a>';
 
                     else
-                    echo '<a href="auth/login.php" class="btn btn-dark rounded-pill d-none d-lg-inline-flex"> <i class="mdi mdi-account-circle me-1"></i>Login</a>';
+                    echo '<a href="auth/login.php" class="btn btn-success rounded-pill d-none d-lg-inline-flex"> <i class="mdi mdi-account-circle me-1"></i>Login</a>';
                     ?>
                 </div>
             </div>

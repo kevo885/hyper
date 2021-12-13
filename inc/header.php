@@ -45,7 +45,7 @@
                             echo '<a href="inc/logout.php" class="btn btn-sm btn-danger rounded-pill d-none d-lg-inline-flex"><i class="mdi mdi-logout me-2"></i>Logout</a>';
 
                         else
-                            echo '<a href="auth/register.php" class="btn btn-dark rounded-pill d-none d-lg-inline-flex"> <i class="mdi mdi-account-plus me-1"></i>Sign Up</a>';
+                            echo '<a href="auth/register.php" class="btn btn-success rounded-pill d-none d-lg-inline-flex"> <i class="mdi mdi-account-plus me-1"></i>Sign Up</a>';
                         ?>
                     </li>
                 </ul>

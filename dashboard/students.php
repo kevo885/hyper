@@ -2,7 +2,6 @@
 include_once "inc/head.php";
 include_once "inc/header.php";
 include_once "inc/side-bar.php";
-include_once "../inc/.env.php";
 ?>
 <div class="content-page">
     <div class="content">
