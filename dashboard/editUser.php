@@ -3,12 +3,18 @@ include_once "inc/head.php";
 include_once "inc/header.php";
 include_once "inc/side-bar.php";
 
+if(!isset($_GET['id'])){
+    header("Location: dashboard.php");
+}
+
 $userID = $_GET['id'];
 mysqli_stmt_prepare($stmt, "SELECT * from user where id = ?");
 mysqli_stmt_bind_param($stmt, "i", $userID);
 
 if(mysqli_stmt_execute($stmt)){
     mysqli_stmt_bind_result($stmt, $id,$username,$password,$name,$dob,$phone,$gender,$age);
+    $date = date_create_from_format('Y-m-d', $dob);
+            $formatedDate = date_format($date, 'm/d/Y');
     mysqli_stmt_fetch($stmt);
 }
 else
@@ -69,7 +75,7 @@ else
                             <p class="text-muted mb-2 font-13"><strong>User ID :</strong> <span class="ms-2 "><?php echo $userID ?></span></p>
                             <p class="text-muted mb-2 font-13"><strong>Username :</strong> <span class="ms-2 "><?php echo $username?></span></p>
                             <p class="text-muted mb-2 font-13"><strong>Phone number :</strong><span class="ms-2"><?php echo $phone ?></span></p>
-                            <p class="text-muted mb-2 font-13"><strong>Birthday :</strong> <span class="ms-2 "><?php echo $dob ?></span></p>
+                            <p class="text-muted mb-2 font-13"><strong>Birthday :</strong> <span class="ms-2 "><?php echo $formatedDate ?></span></p>
                             <p class="text-muted mb-2 font-13"><strong>Age :</strong> <span class="ms-2 "><?php echo $age ?></span></p>
 
 
