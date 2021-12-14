@@ -1,4 +1,14 @@
-<div class="row align-items-center">
+<div id="add-user-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-colored-header bg-primary">
+                <h4 class="modal-title" id="primary-header-modalLabel">User info</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Form -->
+                <form action="../inc/server.php" method="post" class="mt-4">
+                <div class="row align-items-center">
     <div class="col-md-6 mb-3">
         <div class="form-group mb-4">
             <label for="user_name">Name</label>
@@ -64,4 +74,9 @@
 </div>
 </div>
 <div class="modal-footer">
-    <button type="submit" class="btn btn-primary" name='add_user'>Submit</button>
+    <button type="submit" class="btn btn-primary" name='add_user'>Submit</button>                </form>
+            </div>
+        </div>
+    </div>
+    <!-- modal end -->
+</div>

@@ -42,16 +42,19 @@ if (isset($_GET['id'])) {
 
                 <h4 class="mb-0 mt-2"><?php echo $user_name ?></h4>
                 <p class="text-muted font-14"></p>
-                <a href="../inc/logout.php" class="btn btn-danger btn-sm mb-2 rounded-pill">
-                    <i class="mdi mdi-logout me-1"></i>Logout</a>
-                <a href="../inc/logout.php" class="btn btn-primary btn-sm mb-2 rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#personalDetails" aria-expanded="false" aria-controls="personalDetails">
+                <?php if (!isset($_GET['id'])) {
+                    echo '<a href="../inc/logout.php" class="btn btn-danger btn-sm mb-2 rounded-pill">
+                    <i class="mdi mdi-logout me-1"></i>Logout</a>';
+                }
+                ?>
+                <a class="btn btn-primary btn-sm mb-2 rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#personalDetails" aria-expanded="false" aria-controls="personalDetails">
                     <i class="mdi mdi-chevron-down-circle-outline me-1"></i>Update</a>
                 <!-- <div class="col-sm-3 text-end">
                             <button class="btn btn-link ps-0 text-primary collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#personalDetails" aria-expanded="false" aria-controls="personalDetails">Update</button>
                         </div> -->
                 <div class="collapse" id="personalDetails">
                     <form action="crud/modifyUser.php" method="post">
-                   <?php include_once "inc/updateForm.php"; ?>
+                        <?php include_once "inc/updateForm.php"; ?>
                     </form>
                 </div>
 

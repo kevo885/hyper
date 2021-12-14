@@ -19,29 +19,6 @@ include_once "inc/side-bar.php";
                 </div>
             </div>
         </div>
-        <div class="btn mb-2 mb-md-0">
-            <!-- Add courses Modal -->
-            <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content rounded ">
-                        <div class="modal-body p-0">
-                            <div class="card p-4">
-                                <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="topModalLabel">Course Info</h4>
-                                </div>
-                                <div class="card-body">
-                                    <!-- Form -->
-                                    <form class="ps-3 pe-3" action="crud/add.php" method="POST">
-                                        <?php include_once "inc/add-course-form.php"?>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Alert message -->
         <?php include_once "../inc/alerts.php"; ?>
         <!-- end page title -->
