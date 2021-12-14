@@ -65,6 +65,7 @@ else
                     <h4 class="font-13 text-uppercase">CourseInfo</h4>
                     <p class="text-muted mb-2 font-13"><strong>Course ID :</strong> <span class="ms-2 "><?php echo $courseID ?></span></p>
                     <p class="text-muted mb-2 font-13"><strong>Course Name :</strong> <span class="ms-2"><?php echo $courseName ?></span></p>
+                    <p class="text-muted mb-2 font-13"><strong>Course Number :</strong> <span class="ms-2 "><?php echo $courseNumber ?></span></p>
                     <p class="text-muted mb-2 font-13"><strong>Descrption :</strong> <span class="ms-2 "><?php echo $desc ?></span></p>
                     <p class="text-muted mb-2 font-13"><strong>Enrolled :</strong><span class="ms-2"><?php echo $enrolled ?></span></p>
                 </div>

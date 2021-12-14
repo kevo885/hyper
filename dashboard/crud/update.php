@@ -32,7 +32,6 @@ if (isset($_POST['updateCourse'])) {
         mysqli_stmt_prepare($stmt, "UPDATE courses set courseName=? where courseID=?");
         mysqli_stmt_bind_param($stmt, "ss", $newCourseName, $courseID);
         if (mysqli_stmt_execute($stmt)) {
-            $currName = $newCourseName;
             $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
             $_SESSION['message'] .= "Success! Updated name.";
             header("location: ../modify-courses.php?courseID=$courseID");
@@ -43,26 +42,25 @@ if (isset($_POST['updateCourse'])) {
         }
     }
     if (!empty($_POST['newDesc'])) {
-        mysqli_stmt_prepare($stmt, "UPDATE user set password=? where username=?");
-        mysqli_stmt_bind_param($stmt, "ss", $hashed_password, $currNumber);
+        mysqli_stmt_prepare($stmt, "UPDATE courses set descr=? where courseID=?");
+        mysqli_stmt_bind_param($stmt, "ss", $newDesc, $courseID);
         if (mysqli_stmt_execute($stmt)) {
-            $currName = $newCourseName;
             $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-            $_SESSION['message'] .= "Success! Updated password.";
+            $_SESSION['message'] .= "Success! Updated descrption.";
             header("location: ../modify-courses.php?courseID=$courseID");
         } else {
             $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-            $_SESSION['message'] .= "Error: Failed to update password";
+            $_SESSION['message'] .= "Error: Failed to update descrption";
             header("location: ../modify-courses.php?courseID=$courseID");
         }
     }
     if (!empty($_POST['newCourseNumber'])) {
         $exists = false;
-        mysqli_stmt_prepare($stmt, "SELECT username FROM user");
+        mysqli_stmt_prepare($stmt, "SELECT courseNumber FROM courses");
         if (mysqli_stmt_execute($stmt)) {
-            mysqli_stmt_bind_result($stmt, $username);
+            mysqli_stmt_bind_result($stmt, $courseNumber);
             while (mysqli_stmt_fetch($stmt)) {
-                if ($newCourseNumber == $username) {
+                if ($newCourseNumber == $courseNumber) {
                     $exists = true;
                     break;
                 }
@@ -71,27 +69,25 @@ if (isset($_POST['updateCourse'])) {
             exit(mysqli_stmt_error($stmt));
 
         if (!$exists) {
-            mysqli_stmt_prepare($stmt, "UPDATE user set username=? where username=?");
-            mysqli_stmt_bind_param($stmt, "ss", $newCourseNumber, $currNumber);
+            mysqli_stmt_prepare($stmt, "UPDATE courses set courseNumber=? where courseID=?");
+            mysqli_stmt_bind_param($stmt, "ss", $newCourseNumber, $courseID);
+
             if (mysqli_stmt_execute($stmt)) {
-                $currName = $newCourseName;
-                $_SESSION['username'] = $newCourseNumber;
                 $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-                $_SESSION['message'] .= "Success! Updated username.";
+                $_SESSION['message'] .= "Success! Updated course number.";
                 header("location: ../modify-courses.php?courseID=$courseID");
             } else {
                 $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-                $_SESSION['message'] .= "Error: Failed to update username";
+                $_SESSION['message'] .= "Error: Failed to update course number";
                 header("location: ../modify-courses.php?courseID=$courseID");
             }
         } else {
             $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-            $_SESSION['message'] .= "Error: Chosen username already exists. Please select a different username";
+            $_SESSION['message'] .= "Error: Course number already exists";
             header("location: ../modify-courses.php?courseID=$courseID");
         }
     }
 }
-
 // update user
 if (isset($_POST['updateUser'])) {
 
