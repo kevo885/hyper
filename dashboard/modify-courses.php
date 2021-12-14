@@ -14,6 +14,8 @@ if (isset($_GET['courseID'])) {
     } else
         exit(mysqli_stmt_error($stmt));
 }
+else
+    header('location: courses.php');
 ?>
 <!-- breadcrumbs -->
 <div class="row">
@@ -39,7 +41,7 @@ if (isset($_GET['courseID'])) {
                 <div class="collapse" id="personalDetails">
 
                     <!-- Form -->
-                    <form  method="post">
+                    <form action="crud/update.php?courseID=<?php echo $_GET['courseID']?>" method="post">
                         <div class="row g-2">
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Course name</label>
@@ -55,7 +57,7 @@ if (isset($_GET['courseID'])) {
                             <label for="floatingTextarea">Descrption</label>
                             <textarea class="form-control" placeholder="Enter course descrption" name="newDesc" style="height: 100px;"></textarea>
                         </div>
-                        <button class="btn btn-primary rounded-pill mb-4" type="submit" name="update">Save your changes</button>
+                        <button class="btn btn-primary rounded-pill mb-4" type="submit" name="updateCourse">Save your changes</button>
                     </form>
                 </div>
 
