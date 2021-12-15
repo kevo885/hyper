@@ -62,10 +62,4 @@
         </div>
     </div>
 </div>
-<?php if(isset($_GET['id']))
-echo '<button class="btn btn-primary rounded-pill mb-4" type="submit" name="update-teacher">Save your changes</button>';
-
-else
-echo '<button class="btn btn-primary rounded-pill mb-4" type="submit" name="updateUser">Save your changes</button>';
-
-?>
+<button class="btn btn-primary rounded-pill mb-4" type="submit" name="updateUser">Save your changes</button>

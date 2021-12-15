@@ -56,7 +56,7 @@ $formatedDate = date_format($date, 'm/d/Y');
                         </div> -->
                 <div class="collapse" id="personalDetails">
                     <?php if (isset($_GET['id']))
-                        echo '<form action="crud/update.php?id=$userID" method="post">';
+                        echo "<form action=\"crud/update.php?id=$userID\" method=\"post\">";
                     else
                         echo '<form action="crud/update.php" method="post">';
                     ?>
