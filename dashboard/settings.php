@@ -36,7 +36,7 @@ $formatedDate = date_format($date, 'm/d/Y');
     </div>
 </div>
 <div class="row">
-    <div class="col-xl-4 col-xl-10">
+    <div class="col-xl-4 col-xl-10 ">
         <div class="card text-center">
             <div class="card-body">
 
@@ -63,40 +63,36 @@ $formatedDate = date_format($date, 'm/d/Y');
                     <?php include_once "inc/updateForm.php"; ?>
                     </form>
                 </div>
-
-                <div class="text-start mt-3">
-                    <h4 class="font-13 text-uppercase">User Info</h4>
-                    <p class="text-muted mb-2 font-13"><strong>Full Name :</strong> <span class="ms-2"><?php echo $user_name ?></span></p>
-                    <p class="text-muted mb-2 font-13"><strong>Full Name :</strong> <span class="ms-2"><?php echo $gender ?></span></p>
-                    <p class="text-muted mb-2 font-13"><strong>User ID :</strong> <span class="ms-2 "><?php echo $userID ?></span></p>
-                    <p class="text-muted mb-2 font-13"><strong>Username :</strong> <span class="ms-2 "><?php echo $username ?></span></p>
-                    <p class="text-muted mb-2 font-13"><strong>Phone number :</strong><span class="ms-2"><?php echo $phone ?></span></p>
-                    <p class="text-muted mb-2 font-13"><strong>Birthday :</strong> <span class="ms-2 "><?php echo $formatedDate ?></span></p>
-                    <p class="text-muted mb-2 font-13"><strong>Age :</strong> <span class="ms-2 "><?php echo $age ?></span></p>
-
-
+                <!-- user info table -->
+                <div class="table-responsive">
+                    <table class="table table-centered table-nowrap mb-0 ">
+                        <thead>
+                            <tr>
+                                <th>Full name</th>
+                                <th>User ID</th>
+                                <th>Username</th>
+                                <th>Phone number</th>
+                                <th>Birthday</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $user_name ?></td>
+                                <td><?php echo $userID ?></td>
+                                <td><?php echo $username ?></td>
+                                <td><?php echo $phone ?></td>
+                                <td><?php echo $formatedDate ?></td>
+                                <td><?php echo $age ?></td>
+                                <td><?php echo $gender ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-
-                <ul class="social-list list-inline mt-3 mb-0">
-                    <li class="list-inline-item">
-                        <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
-                    </li>
-                </ul>
-            </div> <!-- end card-body -->
-        </div> <!-- end card -->
-
-    </div> <!-- end col -->
+            </div>
+        </div>
+    </div>
 </div>
-<!-- end row-->
-
 </div> <!-- End Content -->
 <?php include_once "inc/footer.php";
