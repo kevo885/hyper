@@ -29,7 +29,7 @@
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown" aria-labelledby="topbar-userdrop">
                         <!-- item-->
                         <div class=" dropdown-header noti-title">
-                            <h6 class="text-overflow m-0">Welcome <?php echo "$_SESSION[name] !";?></h6>
+                            <h6 class="text-overflow m-0">Welcome <?php echo "$user_name !";?></h6>
                         </div>
                         <!-- item-->
                         <a href="settings.php" class="dropdown-item notify-item">

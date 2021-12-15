@@ -15,27 +15,27 @@ if (isset($_POST['updateUser'])) {
     mysqli_stmt_bind_result($stmt, $userID, $currUsername, $currPassword, $currName, $currDob, $currPhone, $currGender, $currAge);
     mysqli_stmt_fetch($stmt);
 
+     // new user info
+     $newName = $_POST['newName'];
+     $newPassword = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
+     $newUsername = $_POST['newUsername'];
+     $newDob = $_POST['newDob'];
+     $newGender = $_POST['newGender'];
+     $newPhone = $_POST['newPhone'];
+     $newAge = $_POST['newAge'];
+
     // if no input field was entered before submitting form
-    if (empty($_POST['newName']) && empty($_POST['newUsername']) && empty($_POST['newPassword'])) {
+    if (empty($newName) && empty($newUsername) && empty($_POST['newPassword'])) {
         $_SESSION['alert'] = "alert alert-warning alert-dismissible fade show";
         $_SESSION['message'] = "Warning: User profile not updated - did not enter any inputs";
         header("location: ../settings.php");
         exit();
     }
-    // new user info
-    $newName = $_POST['newName'];
-    $newPassword = $_POST['newPassword'];
-    $hashed_password = password_hash($newPassword, PASSWORD_DEFAULT);
-    $newUsername = $_POST['newUsername'];
-
-    if (!empty($_POST['newName'])) {
+    if (!empty($newName)) {
         // update name
         mysqli_stmt_prepare($stmt, "UPDATE user set name=? where id=?");
         mysqli_stmt_bind_param($stmt, "ss", $newName, $userID);
         if (mysqli_stmt_execute($stmt)) {
-            $currName = $newName;
-            $_SESSION['name'] = $newName;
-
             $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
             $_SESSION['message'] .= "Success! Updated name";
             header("location: ../settings.php");
@@ -47,9 +47,8 @@ if (isset($_POST['updateUser'])) {
     }
     if (!empty($_POST['newPassword'])) {
         mysqli_stmt_prepare($stmt, "UPDATE user set password=? where id=?");
-        mysqli_stmt_bind_param($stmt, "ss", $hashed_password, $userID);
+        mysqli_stmt_bind_param($stmt, "ss", $newPassword, $userID);
         if (mysqli_stmt_execute($stmt)) {
-            $currName = $newName;
             $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
             $_SESSION['message'] .= "Success! Updated password.";
             header("location: ../settings.php");
@@ -59,13 +58,13 @@ if (isset($_POST['updateUser'])) {
             header("location: ../settings.php");
         }
     }
-    if (!empty($_POST['newUsername'])) {
+    if (!empty($newUsername)) {
         $exists = false;
         mysqli_stmt_prepare($stmt, "SELECT username FROM user");
         if (mysqli_stmt_execute($stmt)) {
-            mysqli_stmt_bind_result($stmt, $username);
+            mysqli_stmt_bind_result($stmt, $currUsername);
             while (mysqli_stmt_fetch($stmt)) {
-                if ($newUsername == $username) {
+                if ($newUsername == $currUsername) {
                     $exists = true;
                     break;
                 }
@@ -77,8 +76,6 @@ if (isset($_POST['updateUser'])) {
             mysqli_stmt_prepare($stmt, "UPDATE user set username=? where id=?");
             mysqli_stmt_bind_param($stmt, "ss", $newUsername, $userID);
             if (mysqli_stmt_execute($stmt)) {
-                $currName = $newName;
-                $_SESSION['username'] = $newUsername;
                 $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
                 $_SESSION['message'] .= "Success! Updated username.";
                 header("location: ../settings.php");
@@ -124,8 +121,7 @@ if (isset($_POST['update-teacher'])) {
 
     // new user info
     $newName = $_POST['newName'];
-    $newPassword = $_POST['newPassword'];
-    $hashed_password = password_hash($newPassword, PASSWORD_DEFAULT);
+    $newPassword = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
     $newUsername = $_POST['newUsername'];
 
     if (!empty($_POST['newName'])) {
@@ -147,7 +143,7 @@ if (isset($_POST['update-teacher'])) {
     }
     if (!empty($_POST['newPassword'])) {
         mysqli_stmt_prepare($stmt, "UPDATE user set password=? where username=?");
-        mysqli_stmt_bind_param($stmt, "ss", $hashed_password, $currNumber);
+        mysqli_stmt_bind_param($stmt, "ss", $newPassword, $currNumber);
         if (mysqli_stmt_execute($stmt)) {
             $currName = $newName;
             $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
