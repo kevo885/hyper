@@ -13,7 +13,7 @@
             <label>Phone</label>
             <div class="input-group">
                 <span class="input-group-text" id="basic-addon2"><span class="mdi mdi-phone"></span></span>
-                <input type="text" name="phone" class="form-control" placeholder="xxx-xxx-xxxx" data-toggle="input-mask" data-mask-format="000-000-0000">
+                <input type="text" class="form-control" name='newPhone' placeholder="xxx-xxx-xxxx" data-toggle="input-mask" data-mask-format="000-000-0000">
             </div>
         </div>
     </div>
@@ -46,14 +46,14 @@
         <div class="input-group">
             <span class="input-group-text" id="basic-addon2"><span class="mdi mdi-calendar"></span></span>
 
-            <input class="form-control" id="birthday" name='dob' type="text" placeholder="mm/dd/yyyy" autocomplete="off" data-toggle="input-mask" data-mask-format="00/00/0000">
+            <input class="form-control" id="birthday" name='newDob' type="text" placeholder="mm/dd/yyyy" autocomplete="off" data-toggle="input-mask" data-mask-format="00/00/0000">
         </div>
     </div>
     <div class="col-md-6 mb-3">
         <label for="gender">Gender</label>
         <div class="input-group">
             <span class="input-group-text" id="basic-addon2"><span class="mdi mdi-gender-female"></span></span>
-            <select class="form-select mb-0" id="gender" name='gender' aria-label="Gender">
+            <select class="form-select mb-0" id="gender" name='newGender' aria-label="Gender">
                 <option selected disabled hidden style='display: none' value="">Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>

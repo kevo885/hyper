@@ -103,38 +103,39 @@ if (isset($_POST['sign-up']) || isset($_POST['add_user'])) {
                     header("location: ../auth/register.php");
                     exit();
                 }
-            }
-            $insert = "INSERT INTO user (username,password,name,dob,age,gender,phone) values (?,?,?,?,?,?,?)";
+            } else {
+                $insert = "INSERT INTO user (username,password,name,dob,age,gender,phone) values (?,?,?,?,?,?,?)";
 
-            // prepare for insert
-            mysqli_stmt_prepare($stmt, $insert);
-            mysqli_stmt_bind_param($stmt, "ssssiss", $_POST['username'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['name'], $formatedDate, $age, $_POST['gender'], checkPhone());
+                // prepare for insert
+                mysqli_stmt_prepare($stmt, $insert);
+                mysqli_stmt_bind_param($stmt, "ssssiss", $_POST['username'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['name'], $formatedDate, $age, $_POST['gender'], checkPhone());
 
-            if (!mysqli_stmt_execute($stmt)) {
-                $_SESSION['message'] = mysqli_stmt_error($stmt);
-                $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
+                if (!mysqli_stmt_execute($stmt)) {
+                    $_SESSION['message'] = mysqli_stmt_error($stmt);
+                    $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
 
-                if (isset($_POST['add_user'])) {
-                    header("location: ../dashboard/users.php");
-                    exit();
-                } else {
-                    header("location: ../auth/register.php");
-                    exit();
+                    if (isset($_POST['add_user'])) {
+                        header("location: ../dashboard/users.php");
+                        exit();
+                    } else {
+                        header("location: ../auth/register.php");
+                        exit();
+                    }
                 }
-            }
 
-            // successfully created user, redirect to login page
-            else {
-                $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
+                // successfully created user, redirect to login page
+                else {
+                    $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
 
-                if (isset($_POST['add_user'])) {
-                    $_SESSION['message'] = "Successfully added $_POST[username]";
-                    header("location: ../dashboard/users.php");
-                    exit();
-                } else {
-                    $_SESSION['message'] = "Successfully created account! Sign in below";
-                    header("location: ../auth/login.php");
-                    exit();
+                    if (isset($_POST['add_user'])) {
+                        $_SESSION['message'] = "Successfully added $_POST[username]";
+                        header("location: ../dashboard/users.php");
+                        exit();
+                    } else {
+                        $_SESSION['message'] = "Successfully created account! Sign in below";
+                        header("location: ../auth/login.php");
+                        exit();
+                    }
                 }
             }
         }

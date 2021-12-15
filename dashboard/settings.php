@@ -18,6 +18,8 @@ if (isset($_GET['id'])) {
     } else
         exit(mysqli_stmt_error($stmt));
 }
+$date = date_create_from_format('Y-m-d', $dob);
+$formatedDate = date_format($date, 'm/d/Y');
 ?>
 <!-- breadcrumbs -->
 <div class="row">
@@ -65,10 +67,11 @@ if (isset($_GET['id'])) {
                 <div class="text-start mt-3">
                     <h4 class="font-13 text-uppercase">User Info</h4>
                     <p class="text-muted mb-2 font-13"><strong>Full Name :</strong> <span class="ms-2"><?php echo $user_name ?></span></p>
+                    <p class="text-muted mb-2 font-13"><strong>Full Name :</strong> <span class="ms-2"><?php echo $gender ?></span></p>
                     <p class="text-muted mb-2 font-13"><strong>User ID :</strong> <span class="ms-2 "><?php echo $userID ?></span></p>
                     <p class="text-muted mb-2 font-13"><strong>Username :</strong> <span class="ms-2 "><?php echo $username ?></span></p>
                     <p class="text-muted mb-2 font-13"><strong>Phone number :</strong><span class="ms-2"><?php echo $phone ?></span></p>
-                    <p class="text-muted mb-2 font-13"><strong>Birthday :</strong> <span class="ms-2 "><?php echo $dob ?></span></p>
+                    <p class="text-muted mb-2 font-13"><strong>Birthday :</strong> <span class="ms-2 "><?php echo $formatedDate ?></span></p>
                     <p class="text-muted mb-2 font-13"><strong>Age :</strong> <span class="ms-2 "><?php echo $age ?></span></p>
 
 
