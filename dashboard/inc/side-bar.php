@@ -21,7 +21,6 @@
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
                         <i class="uil-home-alt"></i>
-                        <span class="badge bg-info rounded-pill float-end">4</span>
                         <span> Dashboards </span>
                     </a>
                     <div class="collapse" id="sidebarDashboards">
@@ -33,7 +32,10 @@
                                 <a href="settings.php"><i class='mdi mdi-account-circle me-1'></i>My account</a>
                             </li>
                             <li>
-                                <a href="users.php"><i class='mdi mdi-account-group me-1'></i>Teachers / Admin</a>
+                                <a href="users.php"><i class='mdi mdi-account-group me-1'></i>User</a>
+                            </li>
+                            <li>
+                                <a href="../index.php"><i class='mdi mdi-home me-1'></i>Home</a>
                             </li>
                             <li>
                                 <a href="../inc/logout.php"><i class='mdi mdi-logout me-1'></i>Logout</a>
@@ -43,6 +45,12 @@
                 </li>
 
                 <li class="side-nav-title side-nav-item">Apps</li>
+                <li class="side-nav-item">
+                    <a href="users.php" class="side-nav-link">
+                        <i class="uil-users-alt"></i>
+                        <span>User</span>
+                    </a>
+                </li>
 
                 <li class="side-nav-item">
                     <a href="courses.php" class="side-nav-link">
@@ -55,12 +63,6 @@
                     <a href="students.php" class="side-nav-link">
                         <i class="uil-book-reader"></i>
                         <span> Students </span>
-                    </a>
-                </li>
-                <li class="side-nav-item">
-                    <a href="users.php" class="side-nav-link">
-                        <i class="uil-users-alt"></i>
-                        <span>Teachers</span>
                     </a>
                 </li>
                 <li class="side-nav-item">

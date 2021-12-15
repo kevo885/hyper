@@ -53,7 +53,7 @@ if (isset($_GET['id'])) {
                             <button class="btn btn-link ps-0 text-primary collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#personalDetails" aria-expanded="false" aria-controls="personalDetails">Update</button>
                         </div> -->
                 <div class="collapse" id="personalDetails">
-                    <form action="crud/update.php" method="post">
+                    <form action="crud/update.php?id=<?php echo $userID ?>" method="post">
                         <?php include_once "inc/updateForm.php"; ?>
                     </form>
                 </div>
