@@ -30,7 +30,6 @@ include_once "inc/side-bar.php";
                                         <!-- print user table -->
                                         <?php userTable(); ?>
                                     </table>
-                                </form>
                             </div> <!-- end preview-->
                         </div> <!-- end tab-content-->
 

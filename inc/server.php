@@ -104,11 +104,31 @@ if (isset($_POST['sign-up']) || isset($_POST['add_user'])) {
                     exit();
                 }
             } else {
-                $insert = "INSERT INTO user (username,password,name,dob,age,gender,phone) values (?,?,?,?,?,?,?)";
+                // assign user ID
+                $id = rand(100000, 999999);
+
+                mysqli_stmt_prepare($stmt, "SELECT id from user");
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_bind_result($stmt, $checkID);
+                // check if random id is assigned yet
+                while (mysqli_stmt_fetch($stmt)) {
+                    if ($checkID == $id) {
+                        $_SESSION['message'] = "Error: ID already exists, please try again.";
+                        $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
+                        if (isset($_POST['add_user'])) {
+                            header("location: ../dashboard/users.php");
+                            exit();
+                        } else {
+                            header("location: ../auth/register.php");
+                            exit();
+                        }
+                    }
+                }
+                $insert = "INSERT INTO user (id,username,password,name,dob,age,gender,phone) values (?,?,?,?,?,?,?,?)";
 
                 // prepare for insert
                 mysqli_stmt_prepare($stmt, $insert);
-                mysqli_stmt_bind_param($stmt, "ssssiss", $_POST['username'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['name'], $formatedDate, $age, $_POST['gender'], checkPhone());
+                mysqli_stmt_bind_param($stmt, "issssiss", $id, $_POST['username'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['name'], $formatedDate, $age, $_POST['gender'], checkPhone());
 
                 if (!mysqli_stmt_execute($stmt)) {
                     $_SESSION['message'] = mysqli_stmt_error($stmt);
@@ -122,7 +142,6 @@ if (isset($_POST['sign-up']) || isset($_POST['add_user'])) {
                         exit();
                     }
                 }
-
                 // successfully created user, redirect to login page
                 else {
                     $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";

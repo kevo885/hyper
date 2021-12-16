@@ -21,7 +21,11 @@ function userTable()
 
     mysqli_stmt_bind_result($stmt, $id, $username, $password, $name, $dob, $phone, $gender, $age);
 ?>
-    <button type="button" class="btn btn-primary rounded-pill mb-3" data-bs-toggle="modal" data-bs-target="#add-user-modal">Add User</button>
+    <div class="row mb-2">
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-primary rounded-pill mb-3" data-bs-toggle="modal" data-bs-target="#add-user-modal"><i class="mdi mdi-plus-circle me-2"></i>Add User</button>
+        </div>
+    </div>
 
     <form action="" method="post">
         <table id="alternative-page-datatable" class="table dt-responsive nowrap">
@@ -59,7 +63,12 @@ function userTable()
 
                                 </div>
                             </div>
-                            <button class="btn btn-sm d-inline-flex align-items-center btn-rounded" type="submit" name="delete" value="<?php echo $id; ?>"><i class='mdi mdi-delete'></i></button>
+                            <?php
+                            if ($_SESSION['id'] != $id) {
+                                echo "<button class=\"btn btn-sm d-inline-flex align-items-center btn-rounded\" type=\"submit\" name=\"delete\" value=\"$id\"><i class='mdi mdi-delete'></i></button>";
+                            } else
+                                echo '<span class="text-success"><small>Current user</small></span>';
+                            ?>
                         </td>
                     </tr>
     </form>
@@ -89,7 +98,11 @@ function coursesTable()
 
     mysqli_stmt_bind_result($stmt, $courseID, $courseName, $courseNumber, $desc, $enrolled);
 ?>
-    <button type="button" class="btn btn-primary rounded-pill mb-3" data-bs-toggle="modal" data-bs-target="#add-course-modal"><i class="mdi mdi-plus me-1"></i>add courses</button>
+    <div class="row mb-2">
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-primary rounded-pill mb-3" data-bs-toggle="modal" data-bs-target="#add-course-modal"><i class="mdi mdi-plus me-1"></i>add courses</button>
+        </div>
+    </div>
     <thead>
         <tr>
             <th>Course ID</th>
