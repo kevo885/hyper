@@ -32,6 +32,14 @@ $formatedDate = date_format($date, 'm/d/Y');
                 </ol>
             </div>
             <h4 class="page-title">Settings</h4>
+            <?php if(isset($_GET['id']))
+            echo '<p class="text-center">
+                <a href="users.php" class="d-flex align-items-center justify-content-center">
+                    <span class="text-gray"><span class="fas fa-arrow-left me-2"></span>Back
+                    </span>
+                </a>';
+                ?>
+            </p>
         </div>
     </div>
 </div>
@@ -39,7 +47,6 @@ $formatedDate = date_format($date, 'm/d/Y');
     <div class="col-xl-4 col-xl-10 ">
         <div class="card text-center">
             <div class="card-body">
-
                 <i class="rounded-circle avatar-lg img-thumbnail fas fa-user fa-4x"></i>
 
                 <h4 class="mb-0 mt-2"><?php echo $user_name ?></h4>

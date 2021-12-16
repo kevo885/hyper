@@ -14,7 +14,7 @@ include_once "inc/side-bar.php";
                             <li class="breadcrumb-item active"><a><?php echo ucfirst(basename(__FILE__, '.php')) ?></a></li>
                         </ol>
                     </div>
-                    <h4 class="page-title">View courses</h4>
+                    <h4 class="page-title">Courses</h4>
                 </div>
             </div>
         </div>

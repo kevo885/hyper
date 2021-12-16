@@ -13,6 +13,8 @@ include_once "../inc/.env.php";
         <meta content="Coderthemes" name="author" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link type="text/css" href="../assets/css/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+
 
         <!-- App css -->
         <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
