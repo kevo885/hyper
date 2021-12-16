@@ -6,7 +6,6 @@ include_once "inc/side-bar.php";
 <div class="content-page">
     <div class="content">
 
-        <!-- start page title -->
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box">
@@ -20,24 +19,19 @@ include_once "inc/side-bar.php";
                 </div>
             </div>
         </div>
-        <!-- end page title -->
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="tab-content">
                             <div class="tab-pane show active" id="alt-pagination-preview">
-                                        <!-- print user table -->
                                         <?php userTable(); ?>
-                                    </table>
-                            </div> <!-- end preview-->
-                        </div> <!-- end tab-content-->
+                            </div>
+                        </div> 
 
-                    </div> <!-- end card body-->
-                </div> <!-- end card -->
-            </div><!-- end col-->
+                    </div>
+                </div> 
+            </div>
         </div>
-        <!-- end row-->
-    </div> <!-- End Content -->
-
+    </div>
     <?php include_once "inc/footer.php" ?>
