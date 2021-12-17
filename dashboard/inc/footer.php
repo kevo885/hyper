@@ -65,10 +65,8 @@
         var phone = button.getAttribute('data-bs-phone')
         var gender = button.getAttribute('data-bs-gender')
         var modalTitle = test.querySelector('.modal-title')
-        var modalBodyInput = test.querySelector('.modal-body input')
 
         modalTitle.textContent = id + " " + name + " " + username + " " + dob + " " + age + " " + phone + " " + gender
-        modalBodyInput.value = id
     })
 </script>
 </body>
