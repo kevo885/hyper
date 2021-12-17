@@ -13,7 +13,8 @@ if (isset($_GET['courseID'])) {
         mysqli_stmt_fetch($stmt);
     } else
         exit(mysqli_stmt_error($stmt));
-} else
+}
+else
     header('location: courses.php');
 ?>
 <!-- breadcrumbs -->
@@ -27,14 +28,6 @@ if (isset($_GET['courseID'])) {
                 </ol>
             </div>
             <h4 class="page-title">Update Course</h4>
-            <?php
-            if (isset($_GET['courseID']))
-                echo '<p class="text-center">
-                <a href="courses.php" class="d-flex align-items-center justify-content-center">
-                    <span class="text-gray"><span class="fas fa-arrow-left me-2"></span>Back
-                    </span>
-                </a>';
-            ?>
         </div>
     </div>
 </div>
@@ -48,7 +41,7 @@ if (isset($_GET['courseID'])) {
                 <div class="collapse" id="personalDetails">
 
                     <!-- Form -->
-                    <form action="crud/update.php?courseID=<?php echo $_GET['courseID'] ?>" method="post">
+                    <form action="crud/update.php?courseID=<?php echo $_GET['courseID']?>" method="post">
                         <div class="row g-2">
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Course name</label>
