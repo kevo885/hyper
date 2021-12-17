@@ -52,21 +52,23 @@
 <!-- end demo js-->
 
 <script>
-    var test = document.getElementById('test')
+    var test = document.getElementById('viewUser')
     test.addEventListener('show.bs.modal', function(event) {
         // Button that triggered the modal
         var button = event.relatedTarget
         // Extract info from data-bs-* attributes
-        var recipient = button.getAttribute('data-bs-id')
-        // If necessary, you could initiate an AJAX request here
-        // and then do the updating in a callback.
-        //
-        // Update the modal's content.
+        var id = button.getAttribute('data-bs-id')
+        var name = button.getAttribute('data-bs-name')
+        var username = button.getAttribute('data-bs-username')
+        var dob = button.getAttribute('data-bs-dob')
+        var age = button.getAttribute('data-bs-age')
+        var phone = button.getAttribute('data-bs-phone')
+        var gender = button.getAttribute('data-bs-gender')
         var modalTitle = test.querySelector('.modal-title')
         var modalBodyInput = test.querySelector('.modal-body input')
 
-        modalTitle.textContent = 'New message to ' + recipient
-        modalBodyInput.value = recipient
+        modalTitle.textContent = id + " " + name + " " + username + " " + dob + " " + age + " " + phone + " " + gender
+        modalBodyInput.value = id
     })
 </script>
 </body>
