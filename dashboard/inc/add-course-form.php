@@ -8,22 +8,52 @@
             <div class="modal-body">
                 <!-- Form -->
                 <form action="crud/add.php" method="post" class="mt-4">
-                    <div class="mb-3">
-                        <label lass="form-label"> Course Name</label>
-                        <input class="form-control" type="text" id="course_name" name='course_name' required placeholder="Enter course name">
-                    </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Course Number</label>
-                        <input class="form-control" type="text" id="number" name='number' required placeholder="Enter course number">
+                        <label class="form-label">Title</label>
+                        <input type="text" class="form-control" name='courseName' placeholder="Course name">
+                    </div>
+                    <div class="row g-2">
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Subject</label>
+                            <input type="text" class="form-control" name='subject' placeholder="Course subject">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="inputPassword4" class="form-label">Course number</label>
+                            <input type="text" class="form-control" name='courseNumber' placeholder="Course number" data-toggle="input-mask" data-mask-format="0000">
+                        </div>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Descrption</label>
-                        <textarea class="form-control" placeholder="Enter course descrption" name="desc" style="height: 100px;"></textarea>
+                        <textarea class="form-control" placeholder="Enter course descrption" name="desc" style="height: 100px;" maxlength="225" data-toggle="maxlength" data-threshold="150" ></textarea>
+                    </div>
+                    <div class="row g-2">
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Available seats</label>
+                            <input type="text" class="form-control" name='enrolled' data-toggle="touchspin" data-bts-max="200">
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label class="form-label">Credit hours</label>
+                            <select name='credit' class="form-select" required>
+                                <option selected disabled hidden style='display: none' value=""></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-2">
+                            <label class="form-label">Campus</label>
+                            <select name='campus' class="form-select" required>
+                                <option selected disabled hidden style='display: none' value=""></option>
+                                <option value="Main Campus">Main campus</option>
+                                <option value="online">Online</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3 text-center">
-                        <button class="btn btn-primary" type="submit" name='addCourse'>Add course</button>
+                        <button class="btn btn-primary rounded-pill" type="submit" name='addCourse'>Add course</button>
                     </div>
                 </form>
             </div>

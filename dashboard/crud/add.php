@@ -3,8 +3,8 @@ include_once "../../inc/.env.php";
 session_start();
 
 if (isset($_POST['addCourse'])) {
-  $courseName = $_POST['course_name'];
-  $courseNumber = $_POST['number'];
+  $courseName = $_POST['courseName'];
+  $courseNumber = $_POST['courseNumber'];
   $desc = $_POST['desc'];
  
   if (!ctype_digit($courseNumber)) {
