@@ -59,6 +59,8 @@ function userTable()
                                 <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
                                     <a href="settings.php?id=<?php echo $id ?>" class="dropdown-item d-flex align-items-center btn btn-sm d-inline-flex align-items-center btn-rounded"><i class='mdi mdi-account-edit me-1'></i>Edit</a>
                                     <a class="dropdown-item d-flex align-items-center" href="" data-bs-toggle="modal" data-bs-target="#addUser"><i class='mdi mdi-plus me-1'></i>Add</a>
+                                    <a class="dropdown-item d-flex align-items-center" href="" data-bs-toggle="modal" data-bs-target="#test" data-bs-id="<?php echo $name ?>"><i class='mdi mdi-eye me-1'></i>View</a>
+
 
                                 </div>
                             </div>
@@ -71,6 +73,9 @@ function userTable()
                 include_once "inc/addForm.php";
 ?>
 </tbody>
+<div id="test" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
+    <?php include_once "inc/viewModal.php"; ?>
+</div>
 <?php  }
 function coursesTable()
 {

@@ -48,8 +48,10 @@ $formatedDate = date_format($date, 'm/d/Y');
                 </a>
             </p>';
                 ?>
-                <i class="rounded-circle avatar-lg img-thumbnail fas fa-user fa-4x"></i>
+                <button class="btn btn-lg btn-white rounded-circle border-light">
+                    <span class="fas fa-user"></span>
 
+                </button>
                 <h4 class="mb-0 mt-2"><?php echo $user_name ?></h4>
                 <p class="text-muted font-14"></p>
                 <?php if (!isset($_GET['id'])) {
