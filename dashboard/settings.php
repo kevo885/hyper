@@ -59,18 +59,8 @@ $formatedDate = date_format($date, 'm/d/Y');
                 ?>
                 <a class="btn btn-primary btn-sm mb-2 rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#personalDetails" aria-expanded="false" aria-controls="personalDetails">
                     <i class="mdi mdi-chevron-down-circle-outline me-1"></i>Update</a>
-                <!-- <div class="col-sm-3 text-end">
-                            <button class="btn btn-link ps-0 text-primary collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#personalDetails" aria-expanded="false" aria-controls="personalDetails">Update</button>
-                        </div> -->
-                <div class="collapse" id="personalDetails">
-                    <?php if (isset($_GET['id']))
-                        echo "<form action=\"crud/update.php?id=$userID\" method=\"post\">";
-                    else
-                        echo '<form action="crud/update.php" method="post">';
-                    ?>
-                    <?php include_once "inc/updateForm.php"; ?>
-                    </form>
-                </div>
+                <?php include_once "inc/updateForm.php"; ?>
+
                 <!-- user info table -->
                 <div class="table-responsive">
                     <table class="table table-centered table-nowrap mb-0 ">
