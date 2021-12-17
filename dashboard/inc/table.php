@@ -21,8 +21,11 @@ function userTable()
 
     mysqli_stmt_bind_result($stmt, $id, $username, $password, $name, $dob, $phone, $gender, $age);
 ?>
-    <button type="button" class="btn btn-primary rounded-pill mb-3" data-bs-toggle="modal" data-bs-target="#add-user-modal">Add User</button>
-
+    <div class="row mb-2">
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-primary rounded-pill mb-3" data-bs-toggle="modal" data-bs-target="#add-user-modal"><i class='mdi mdi-plus me-1'></i>Add User</button>
+        </div>
+    </div>
     <form action="" method="post">
         <table id="alternative-page-datatable" class="table dt-responsive nowrap">
             <thead>
