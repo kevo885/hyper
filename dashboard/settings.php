@@ -42,7 +42,7 @@ $formatedDate = date_format($date, 'm/d/Y');
             <div class="card-body">
                 <?php if (isset($_GET['id']))
                     echo '<p class="page-title">
-            <a href="courses.php">
+            <a href="users.php">
                     <span class="text-gray"><span class="fas fa-arrow-left me-2"></span>Back
                     </span>
                 </a>

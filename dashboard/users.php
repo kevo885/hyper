@@ -26,6 +26,8 @@ include_once "inc/side-bar.php";
                         <div class="tab-content">
                             <div class="tab-pane show active" id="alt-pagination-preview">
                                         <?php userTable(); ?>
+                                        </table>
+                                </form>
                             </div>
                         </div> 
 
