@@ -27,14 +27,6 @@ if (isset($_GET['courseID'])) {
                 </ol>
             </div>
             <h4 class="page-title">Update Course</h4>
-            <?php
-            if (isset($_GET['courseID']))
-                echo '<p class="text-center">
-                <a href="courses.php" class="d-flex align-items-center justify-content-center">
-                    <span class="text-gray"><span class="fas fa-arrow-left me-2"></span>Back
-                    </span>
-                </a>';
-            ?>
         </div>
     </div>
 </div>
@@ -42,6 +34,14 @@ if (isset($_GET['courseID'])) {
     <div class="col-xl-4 col-xl-10">
         <div class="card text-center">
             <div class="card-body">
+                <?php if (isset($_GET['courseID']))
+                    echo '<p class="page-title">
+            <a href="courses.php">
+                    <span class="text-gray"><span class="fas fa-arrow-left me-2"></span>Back
+                    </span>
+                </a>
+            </p>';
+                ?>
                 <p class="text-muted font-14"></p>
                 <a class="btn btn-primary btn-sm mb-2 rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#personalDetails" aria-expanded="false" aria-controls="personalDetails">
                     <i class="mdi mdi-chevron-down-circle-outline me-1"></i>Update</a>
