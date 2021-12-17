@@ -5,6 +5,7 @@
                 <h4 class="modal-title" id="primary-header-modalLabel">Course info</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
             </div>
+
             <div class="modal-body">
                 <!-- Form -->
                 <form action="crud/add.php" method="post" class="mt-4">
@@ -26,12 +27,12 @@
 
                     <div class="mb-3">
                         <label class="form-label">Descrption</label>
-                        <textarea class="form-control" placeholder="Enter course descrption" name="desc" style="height: 100px;" maxlength="225" data-toggle="maxlength" data-threshold="150" ></textarea>
+                        <textarea class="form-control" placeholder="Enter course descrption" name="desc" style="height: 100px;" maxlength="225" data-toggle="maxlength" data-threshold="150"></textarea>
                     </div>
                     <div class="row g-2">
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Available seats</label>
-                            <input type="text" class="form-control" name='enrolled' data-toggle="touchspin" data-bts-max="200">
+                            <input type="text" class="form-control" name='avaliable' data-toggle="touchspin" data-bts-max="200">
                         </div>
                         <div class="mb-3 col-md-4">
                             <label class="form-label">Credit hours</label>

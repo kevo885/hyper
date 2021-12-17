@@ -96,7 +96,7 @@ function coursesTable()
     if (!mysqli_stmt_execute($stmt))
         exit(mysqli_stmt_error($stmt));
 
-    mysqli_stmt_bind_result($stmt, $courseID, $courseName, $courseNumber, $desc, $enrolled);
+    mysqli_stmt_bind_result($stmt, $courseID, $courseName, $courseNumber, $desc, $credit,$campus,$avaliable,$subject);
 ?>
     <div class="row mb-2">
         <div class="col-sm-4">
@@ -140,6 +140,6 @@ function coursesTable()
     <?php  }
                 echo '</tbody>';
                 echo '</table>';
-                include_once "add-course-form.php";
+                include_once "inc/add-course-form.php";
     ?>
 <?php  }
