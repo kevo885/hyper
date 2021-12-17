@@ -228,6 +228,13 @@ if (!empty($newDob)) {
 // update course
 if (isset($_POST['updateCourse'])) {
     $courseID = $_GET['courseID'];
+    $newCourseName = $_POST['newCourseName'];
+    $newDesc = $_POST['newDesc'];
+    $newCourseNumber = $_POST['newCourseNumber'];
+    $newCredit = $_POST['newCredit'];
+    $newCampus = $_POST['newCampus'];
+    $newSubject = $_POST['newSubject'];
+    $newAvaliablitiy = $_POST['newAvaliableSeats'];
 
     // fetch selected course info
     mysqli_stmt_prepare($stmt, "SELECT * from courses where courseID = ?");
@@ -240,18 +247,13 @@ if (isset($_POST['updateCourse'])) {
         exit(mysqli_stmt_error($stmt));
 
     // if no input field was entered before submitting form
-    if (empty($_POST['newCourseName']) && empty($_POST['newCourseNumber']) && empty($_POST['newDesc'])) {
+    if (empty($newCourseName) && empty($newCourseNumber) && empty($newAge)  && empty($newCredit)  && empty($newDesc)  && empty($newCampus)  && empty($newSubject)  && empty($newAvaliablitiy)) {
         $_SESSION['alert'] = "alert alert-warning alert-dismissible fade show";
         $_SESSION['message'] = "Warning: Course not updated, did not enter any inputs";
         header("location: ../modify-courses.php?courseID=$courseID");
         exit();
     }
-    // new Course info
-    $newCourseName = $_POST['newCourseName'];
-    $newDesc = $_POST['newDesc'];
-    $newCourseNumber = $_POST['newCourseNumber'];
-
-    if (!empty($_POST['newCourseName'])) {
+    if (!empty($newCourseName)) {
         // update name
         mysqli_stmt_prepare($stmt, "UPDATE courses set courseName=? where courseID=?");
         mysqli_stmt_bind_param($stmt, "ss", $newCourseName, $courseID);
@@ -265,7 +267,7 @@ if (isset($_POST['updateCourse'])) {
             header("location: ../modify-courses.php?courseID=$courseID");
         }
     }
-    if (!empty($_POST['newDesc'])) {
+    if (!empty($newDesc)) {
         mysqli_stmt_prepare($stmt, "UPDATE courses set descr=? where courseID=?");
         mysqli_stmt_bind_param($stmt, "ss", $newDesc, $courseID);
         if (mysqli_stmt_execute($stmt)) {
@@ -278,7 +280,59 @@ if (isset($_POST['updateCourse'])) {
             header("location: ../modify-courses.php?courseID=$courseID");
         }
     }
-    if (!empty($_POST['newCourseNumber'])) {
+    if (!empty($newCredit)) {
+        mysqli_stmt_prepare($stmt, "UPDATE courses set credit=? where courseID=?");
+        mysqli_stmt_bind_param($stmt, "is", $newCredit, $courseID);
+        if (mysqli_stmt_execute($stmt)) {
+            $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
+            $_SESSION['message'] .= "Success! Updated credit hours.";
+            header("location: ../modify-courses.php?courseID=$courseID");
+        } else {
+            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
+            $_SESSION['message'] .= "Error: Failed to update descrption";
+            header("location: ../modify-courses.php?courseID=$courseID");
+        }
+    }
+    if (!empty($newAvaliablitiy)) {
+        mysqli_stmt_prepare($stmt, "UPDATE courses set avaliable=? where courseID=?");
+        mysqli_stmt_bind_param($stmt, "is", $newAvaliablitiy, $courseID);
+        if (mysqli_stmt_execute($stmt)) {
+            $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
+            $_SESSION['message'] .= "Success! Updated Seats avaliable.";
+            header("location: ../modify-courses.php?courseID=$courseID");
+        } else {
+            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
+            $_SESSION['message'] .= "Error: Failed to update descrption";
+            header("location: ../modify-courses.php?courseID=$courseID");
+        }
+    }
+    if (!empty($newCampus)) {
+        mysqli_stmt_prepare($stmt, "UPDATE courses set campus=? where courseID=?");
+        mysqli_stmt_bind_param($stmt, "ss", $newCampus, $courseID);
+        if (mysqli_stmt_execute($stmt)) {
+            $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
+            $_SESSION['message'] .= "Success! Updated campus.";
+            header("location: ../modify-courses.php?courseID=$courseID");
+        } else {
+            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
+            $_SESSION['message'] .= "Error: Failed to update descrption";
+            header("location: ../modify-courses.php?courseID=$courseID");
+        }
+    }
+    if (!empty($newSubject)) {
+        mysqli_stmt_prepare($stmt, "UPDATE courses set subject=? where courseID=?");
+        mysqli_stmt_bind_param($stmt, "ss", $newSubject, $courseID);
+        if (mysqli_stmt_execute($stmt)) {
+            $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
+            $_SESSION['message'] .= "Success! Updated Subject.";
+            header("location: ../modify-courses.php?courseID=$courseID");
+        } else {
+            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
+            $_SESSION['message'] .= "Error: Failed to update descrption";
+            header("location: ../modify-courses.php?courseID=$courseID");
+        }
+    }
+    if (!empty($newCourseNumber)) {
         $exists = false;
         mysqli_stmt_prepare($stmt, "SELECT courseNumber FROM courses");
         if (mysqli_stmt_execute($stmt)) {
