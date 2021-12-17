@@ -86,51 +86,49 @@ function coursesTable()
     if (!mysqli_stmt_execute($stmt))
         exit(mysqli_stmt_error($stmt));
 
-        mysqli_stmt_bind_result($stmt, $courseID, $courseName, $courseNumber, $desc, $credit,$campus,$avaliable,$subject);
-        ?>
- <div class="row mb-2">
+    mysqli_stmt_bind_result($stmt, $courseID, $courseName, $courseNumber, $desc, $subject, $avaliable, $credit, $campus);
+?>
+    <div class="row mb-2">
         <div class="col-sm-4">
             <button type="button" class="btn btn-primary rounded-pill mb-3" data-bs-toggle="modal" data-bs-target="#add-course-modal"><i class="mdi mdi-plus me-1"></i>add courses</button>
         </div>
-    </div>    <thead>
-    <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Subject</th>
-                    <th>CRN</th>
-                    <th>Desc</th>
-                    <th>Seats avaliable</th>
-                    <th>Credit hour</th>
-                    <th>Campus</th>
-                    <th>Action</th>
+    </div>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Subject</th>
+            <th>CRN</th>
+            <th>Seats avaliable</th>
+            <th>Credit hour</th>
+            <th>Campus</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        while (mysqli_stmt_fetch($stmt)) {
+        ?>
+            <tr>
+                <td><?php echo $courseID; ?></td>
+                <td><?php echo $courseName; ?></td>
+                <td><?php echo $subject; ?></td>
+                <td><?php echo $courseNumber; ?></td>
+                <td><?php echo $avaliable ?></td>
+                <td><?php echo $credit; ?></td>
+                <td><?php echo $campus; ?></td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0 arrow-none" data-bs-toggle="dropdown"><i class='dripicons-dots-3'></i></button>
+                        <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
+                            <a class="dropdown-item d-flex align-items-center" href="modify-courses.php?courseID=<?php echo $courseID ?>"><i class='mdi mdi-book-edit-outline me-1'></i>Edit</a>
+                            <a class="dropdown-item d-flex align-items-center" href="" data-bs-toggle="modal" data-bs-target="#add-course-modal"><i class='mdi mdi-plus me-1'></i>Add</a>
 
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                while (mysqli_stmt_fetch($stmt)) {
-                ?>
-                    <tr>
-                        <td><?php echo $courseID; ?></td>
-                        <td><?php echo $courseName; ?></td>
-                        <td><?php echo $subject; ?></td>
-                        <td><?php echo $courseNumber; ?></td>
-                        <td><?php echo $desc; ?></td>
-                        <td><?php echo $avaliable ?></td>
-                        <td><?php echo $credit; ?></td>
-                        <td><?php echo $campus; ?></td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0 arrow-none" data-bs-toggle="dropdown"><i class='dripicons-dots-3'></i></button>
-                                <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
-                                    <a class="dropdown-item d-flex align-items-center" href="modify-courses.php?courseID=<?php echo $courseID ?>"><i class='mdi mdi-book-edit-outline me-1'></i>Edit</a>
-                                    <a class="dropdown-item d-flex align-items-center" href="" data-bs-toggle="modal" data-bs-target="#add-course-modal"><i class='mdi mdi-plus me-1'></i>Add</a>
-
-                                </div>
-                            </div>
-                            <button class="btn btn-sm d-inline-flex align-items-center btn-rounded" type="submit" name="delete" value="<?php echo $courseID; ?>"><i class='mdi mdi-delete'></i></button>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm d-inline-flex align-items-center btn-rounded" type="submit" name="delete" value="<?php echo $courseID; ?>"><i class='mdi mdi-delete'></i></button>
+                </td>
+            </tr>
             </form>
     <?php  }
         include_once "add-course-form.php";

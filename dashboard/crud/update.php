@@ -234,7 +234,7 @@ if (isset($_POST['updateCourse'])) {
     mysqli_stmt_bind_param($stmt, "i", $courseID);
 
     if (mysqli_stmt_execute($stmt)) {
-        mysqli_stmt_bind_result($stmt, $courseID, $currName, $currNumber, $currDesc, $enrolled);
+        mysqli_stmt_bind_result($stmt, $courseID, $courseName, $courseNumber, $desc, $subject, $avaliable, $credit, $campus);
         mysqli_stmt_fetch($stmt);
     } else
         exit(mysqli_stmt_error($stmt));

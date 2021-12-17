@@ -12,27 +12,27 @@
 
                     <div class="mb-3">
                         <label class="form-label">Title</label>
-                        <input type="text" class="form-control" name='courseName' placeholder="Course name">
+                        <input type="text" class="form-control" name='courseName' placeholder="Course name" required>
                     </div>
                     <div class="row g-2">
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Subject</label>
-                            <input type="text" class="form-control" name='subject' placeholder="Course subject">
+                            <input type="text" class="form-control" name='subject' placeholder="Course subject" required>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="inputPassword4" class="form-label">Course number</label>
-                            <input type="text" class="form-control" name='courseNumber' placeholder="Course number" data-toggle="input-mask" data-mask-format="0000">
+                            <input type="text" class="form-control" name='courseNumber' placeholder="Course number" data-toggle="input-mask" data-mask-format="0000" required>
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Descrption</label>
-                        <textarea class="form-control" placeholder="Enter course descrption" name="desc" style="height: 100px;" maxlength="225" data-toggle="maxlength" data-threshold="150"></textarea>
+                        <textarea class="form-control" placeholder="Enter course descrption" name="desc" style="height: 100px;" maxlength="225" data-toggle="maxlength" data-threshold="150" required></textarea>
                     </div>
                     <div class="row g-2">
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Available seats</label>
-                            <input type="text" class="form-control" name='avaliable' data-toggle="touchspin" data-bts-max="200">
+                            <input type="text" class="form-control" name='avaliable' required>
                         </div>
                         <div class="mb-3 col-md-4">
                             <label class="form-label">Credit hours</label>

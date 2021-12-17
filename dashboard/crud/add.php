@@ -2,6 +2,7 @@
 include_once "../../inc/.env.php";
 session_start();
 
+// add course
 if (isset($_POST['addCourse'])) {
   $courseName = $_POST['courseName'];
   $courseNumber = $_POST['courseNumber'];
@@ -33,7 +34,7 @@ if (isset($_POST['addCourse'])) {
   // if no errors insert into database.
   $query = "INSERT into courses (courseName,courseNumber,descr,credit,campus,avaliable,subject) values (?,?,?,?,?,?,?)";
   mysqli_stmt_prepare($stmt, $query);
-  mysqli_stmt_bind_param($stmt, "sssssss", $courseName, $courseNumber, $desc, $credit, $campus, $avaliable, $subject);
+  mysqli_stmt_bind_param($stmt, "sssisis", $courseName, $courseNumber, $desc, $credit, $campus, $avaliable, $subject);
   $result = mysqli_stmt_execute($stmt);
 
   if (!$result) {
