@@ -1,3 +1,4 @@
+<!-- Update user -->
 <div class="collapse" id="personalDetails">
     <?php if (isset($_GET['id']))
         echo "<form action=\"crud/update.php?id=$userID\" method=\"post\">";
@@ -72,54 +73,54 @@
     </form>
 </div>
 
-
+<!-- Update course -->
 <div class="collapse" id="updateCourse">
-                    <!-- Form -->
-                    <form action="crud/update.php?courseID=<?php echo $_GET['courseID'] ?>" method="post">
-                        <div class="mb-3">
-                            <label class="form-label">Title</label>
-                            <input type="text" class="form-control" name='newCourseName' placeholder="Course name">
-                        </div>
-                        <div class="row g-2">
-                            <div class="mb-3 col-md-6">
-                                <label class="form-label">Subject</label>
-                                <input type="text" class="form-control" name='newSubject' placeholder="Course subject">
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="inputPassword4" class="form-label">Course number</label>
-                                <input type="text" class="form-control" name='newCourseNumber' placeholder="Course number" data-toggle="input-mask" data-mask-format="0000">
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Descrption</label>
-                            <textarea class="form-control" placeholder="Enter course descrption" name="newDesc" style="height: 100px;" maxlength="225" data-toggle="maxlength" data-threshold="150"></textarea>
-                        </div>
-                        <div class="row g-2">
-                            <div class="mb-3 col-md-6">
-                                <label class="form-label">Available seats</label>
-                                <input type="text" class="form-control" name='newAvaliableSeats'>
-                            </div>
-                            <div class="mb-3 col-md-4">
-                                <label class="form-label">Credit hours</label>
-                                <select name='newCredit' class="form-select">
-                                    <option selected disabled hidden style='display: none' value=""></option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </div>
-                            <div class="mb-3 col-md-2">
-                                <label class="form-label">Campus</label>
-                                <select name='newCampus' class="form-select">
-                                    <option selected disabled hidden style='display: none' value=""></option>
-                                    <option value="Main Campus">Main campus</option>
-                                    <option value="online">Online</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3 text-center">
-                            <button class="btn btn-primary rounded-pill" type="submit" name='updateCourse'>Save changes</button>
-                        </div>
-                    </form>
-                </div>
+    <!-- Form -->
+    <form action="crud/update.php?courseID=<?php echo $_GET['courseID'] ?>" method="post">
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" name='newCourseName' placeholder="Course name">
+        </div>
+        <div class="row g-2">
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Subject</label>
+                <input type="text" class="form-control" name='newSubject' placeholder="Course subject">
+            </div>
+            <div class="mb-3 col-md-6">
+                <label for="inputPassword4" class="form-label">Course number</label>
+                <input type="text" class="form-control" name='newCourseNumber' placeholder="Course number" data-toggle="input-mask" data-mask-format="0000">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Descrption</label>
+            <textarea class="form-control" placeholder="Enter course descrption" name="newDesc" style="height: 100px;" maxlength="225" data-toggle="maxlength" data-threshold="150"></textarea>
+        </div>
+        <div class="row g-2">
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Available seats</label>
+                <input type="text" class="form-control" name='newAvaliableSeats'>
+            </div>
+            <div class="mb-3 col-md-4">
+                <label class="form-label">Credit hours</label>
+                <select name='newCredit' class="form-select">
+                    <option selected disabled hidden style='display: none' value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div class="mb-3 col-md-2">
+                <label class="form-label">Campus</label>
+                <select name='newCampus' class="form-select">
+                    <option selected disabled hidden style='display: none' value=""></option>
+                    <option value="Main Campus">Main campus</option>
+                    <option value="online">Online</option>
+                </select>
+            </div>
+        </div>
+        <div class="mb-3 text-center">
+            <button class="btn btn-primary rounded-pill" type="submit" name='updateCourse'>Save changes</button>
+        </div>
+    </form>
+</div>
