@@ -23,7 +23,7 @@ function userTable()
 ?>
     <div class="row mb-2">
         <div class="col-sm-4">
-            <button type="button" class="btn btn-primary rounded-pill mb-3" data-bs-toggle="modal" data-bs-target="#add-user-modal"><i class='mdi mdi-plus me-1'></i>Add User</button>
+            <button type="button" class="btn btn-primary rounded-pill mb-3" data-bs-toggle="modal" data-bs-target="#addUser"><i class='mdi mdi-plus me-1'></i>Add User</button>
         </div>
     </div>
     <form action="" method="post">
@@ -58,7 +58,7 @@ function userTable()
                                 <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0 arrow-none" data-bs-toggle="dropdown"><i class='dripicons-dots-3'></i></button>
                                 <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
                                     <a href="settings.php?id=<?php echo $id ?>" class="dropdown-item d-flex align-items-center btn btn-sm d-inline-flex align-items-center btn-rounded"><i class='mdi mdi-account-edit me-1'></i>Edit</a>
-                                    <a class="dropdown-item d-flex align-items-center" href="" data-bs-toggle="modal" data-bs-target="#add-user-modal"><i class='mdi mdi-plus me-1'></i>Add</a>
+                                    <a class="dropdown-item d-flex align-items-center" href="" data-bs-toggle="modal" data-bs-target="#addUser"><i class='mdi mdi-plus me-1'></i>Add</a>
 
                                 </div>
                             </div>
@@ -68,7 +68,7 @@ function userTable()
     </form>
 <?php  }
                 // modal 
-                include_once "inc/add-user-form.php";
+                include_once "inc/addForm.php";
 ?>
 </tbody>
 <?php  }
@@ -93,7 +93,7 @@ function coursesTable()
 ?>
     <div class="row mb-2">
         <div class="col-sm-4">
-            <button type="button" class="btn btn-primary rounded-pill mb-3" data-bs-toggle="modal" data-bs-target="#add-course-modal"><i class="mdi mdi-plus me-1"></i>add courses</button>
+            <button type="button" class="btn btn-primary rounded-pill mb-3" data-bs-toggle="modal" data-bs-target="#course-modal"><i class="mdi mdi-plus me-1"></i>add courses</button>
         </div>
     </div>
     <thead>
@@ -125,7 +125,7 @@ function coursesTable()
                         <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0 arrow-none" data-bs-toggle="dropdown"><i class='dripicons-dots-3'></i></button>
                         <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
                             <a class="dropdown-item d-flex align-items-center" href="modify-courses.php?courseID=<?php echo $courseID ?>"><i class='mdi mdi-book-edit-outline me-1'></i>Edit</a>
-                            <a class="dropdown-item d-flex align-items-center" href="" data-bs-toggle="modal" data-bs-target="#add-course-modal"><i class='mdi mdi-plus me-1'></i>Add</a>
+                            <a class="dropdown-item d-flex align-items-center" href="" data-bs-toggle="modal" data-bs-target="#course-modal"><i class='mdi mdi-plus me-1'></i>Add</a>
 
                         </div>
                     </div>
@@ -134,6 +134,6 @@ function coursesTable()
             </tr>
             </form>
     <?php  }
-        include_once "add-course-form.php";
+        include_once "addForm.php";
         echo  '</tbody>';
     }
