@@ -26,11 +26,9 @@ include_once "inc/side-bar.php";
                     <div class="card-body">
                         <div class="tab-content">
                             <div class="tab-pane show active" id="alt-pagination-preview">
-                            <form action="" method="post">
-                                    <table id="alternative-page-datatable" class="table dt-responsive nowrap">
                                 <?php coursesTable() ?>
                                 </table>
-                              
+
                             </div>
                         </div>
 
