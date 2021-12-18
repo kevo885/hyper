@@ -63,7 +63,13 @@ function userTable()
                                         <i class='mdi mdi-eye me-1'></i>View</a>
                                 </div>
                             </div>
-                            <button class="btn btn-sm d-inline-flex align-items-center btn-rounded" type="submit" name="delete" value="<?php echo $id; ?>"><i class='mdi mdi-delete'></i></button>
+                            <?php 
+                            if($_SESSION['id'] == $id)
+                            echo '<span class="text-success">Current user</span>';
+
+                            else
+                            echo "<button class=\"btn btn-sm d-inline-flex align-items-center btn-rounded\" type=\"submit\" name=\"delete\" value=\"$id\"><i class='mdi mdi-delete'></i></button>"
+                            ?>
                         </td>
                     </tr>
     </form>
