@@ -162,7 +162,7 @@ if (isset($_POST['sign-up']) || isset($_POST['add_user'])) {
 }
 // sign in
 if (isset($_POST['sign-in'])) {
-    $sql = 'SELECT id, username,password,name FROM user WHERE username = ?';
+    $sql = 'SELECT id,password FROM user WHERE username = ?';
 
     mysqli_stmt_prepare($stmt, $sql);
     mysqli_stmt_bind_param($stmt, 's', $_POST['username']);
@@ -173,13 +173,13 @@ if (isset($_POST['sign-in'])) {
 
     // If username exists in sign_up table
     if (mysqli_stmt_num_rows($stmt) > 0) {
-        mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $name);
+        mysqli_stmt_bind_result($stmt, $id,$hashed_password);
         mysqli_stmt_fetch($stmt);
 
         // if password user enters matches the one in the database
         if (password_verify($_POST['password'], $hashed_password)) {
 
-            // handle remember me functionality (simplified queries for brevity)
+            // if remember me is checked set cookie
             if (!empty($_POST['remember'])) {
                 $remember_token = base64_encode(random_bytes(64));
                 $remember_days = 90;
@@ -191,16 +191,13 @@ if (isset($_POST['sign-in'])) {
                 mysqli_stmt_prepare($stmt, $q);
                 mysqli_stmt_bind_param($stmt, 'sii', $remember_token, $id,  $remember_time);
 
-                // execute 
+                // execute query 
                 if (!mysqli_stmt_execute($stmt))
                     exit(mysqli_stmt_error($stmt));
 
                 // set cookie
-                $path = "/";
-                setcookie("remember", $remember_token, time() + $remember_time, $path);
-            }
-            $_SESSION['name'] = $name;
-            $_SESSION['username'] = $username;
+                setcookie("remember", $remember_token, time() + $remember_time);
+            } 
             $_SESSION['id'] = $id;
             $_SESSION['message'] = "Sign in successful!";
             $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
