@@ -40,11 +40,17 @@
                             <li>
                                 <a href="../inc/logout.php"><i class='mdi mdi-logout me-1'></i>Logout</a>
                             </li>
+                            <li>
+                                <a href="charts.php">Charts</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
 
                 <li class="side-nav-title side-nav-item">Apps</li>
+                <li>
+                                <a href="charts.php">Charts</a>
+                            </li>
                 <li class="side-nav-item">
                     <a href="users.php" class="side-nav-link">
                         <i class="uil-users-alt"></i>

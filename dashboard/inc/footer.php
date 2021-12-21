@@ -44,13 +44,13 @@
 <script src="../assets/js/vendor/buttons.print.min.js"></script>
 <script src="../assets/js/vendor/dataTables.keyTable.min.js"></script>
 <script src="../assets/js/vendor/dataTables.select.min.js"></script>
-<!-- third party js ends -->
-
-<!-- demo app -->
 <script src="../assets/js/pages/demo.dashboard.js"></script>
 <script src="../assets/js/pages/demo.datatable-init.js"></script>
-<!-- end demo js-->
 
+
+<script src="../assets/js/charts.js"></script>
+
+<!-- end demo js-->
 <script>
     var user = document.getElementById('viewUser')
     user.addEventListener('show.bs.modal', function(event) {
