@@ -22,7 +22,7 @@
                                 
                             </button>
                             <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                                <span class="mb-0 font-small fw-bold text-gray-900"><?php echo $_SESSION['name'];?></span>
+                                <span class="mb-0 font-small fw-bold text-gray-900"><?php echo $user_name;?></span>
                             </div>
                         </div>
                     </a>                    
