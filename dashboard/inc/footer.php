@@ -94,6 +94,9 @@
             type: 'pie',
         },
         labels: ['Male','Female','Not specify'],
+        theme: { 
+      palette: 'palette1', 
+  }
     };
 
     var chart = new ApexCharts(document.querySelector("#gender-pie-user"), options);

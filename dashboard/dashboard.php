@@ -391,15 +391,15 @@ $gender = getGender();
 
                         <div class="chart-widget-list">
                             <p>
-                                <i class="mdi mdi-square text-primary"></i> Male
+                                <i class="mdi mdi-square" style='color:#008FFB'></i> Male
                                 <span class="float-end"><?php echo $gender[0] ?></span>
                             </p>
                             <p>
-                                <i class="mdi mdi-square text-danger"></i> Female
+                                <i class="mdi mdi-square" style='color:#00E396'></i> Female
                                 <span class="float-end"><?php echo $gender[1]?></span>
                             </p>
                             <p>
-                                <i class="mdi mdi-square text-success"></i> Not specify
+                                <i class="mdi mdi-square" style='color:#FEB019'></i> Not specify
                                 <span class="float-end"><?php echo $gender[2]?></span>
                             </p>
                         </div>
