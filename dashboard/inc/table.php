@@ -63,12 +63,12 @@ function userTable()
                                         <i class='mdi mdi-eye me-1'></i>View</a>
                                 </div>
                             </div>
-                            <?php 
-                            if($_SESSION['id'] == $id)
-                            echo '<span class="text-success">Current user</span>';
+                            <?php
+                            if ($_SESSION['id'] == $id)
+                                echo '<span class="text-success">Current user</span>';
 
                             else
-                            echo "<button class=\"btn btn-sm d-inline-flex align-items-center btn-rounded\" type=\"submit\" name=\"delete\" value=\"$id\"><i class='mdi mdi-delete'></i></button>"
+                                echo "<button class=\"btn btn-sm d-inline-flex align-items-center btn-rounded\" type=\"submit\" name=\"delete\" value=\"$id\"><i class='mdi mdi-delete'></i></button>"
                             ?>
                         </td>
                     </tr>
@@ -209,12 +209,12 @@ function studentTable()
                                         <i class='mdi mdi-eye me-1'></i>View</a>
                                 </div>
                             </div>
-                            <?php 
-                            if($_SESSION['id'] == $id)
-                            echo '<span class="text-success">Current user</span>';
+                            <?php
+                            if ($_SESSION['id'] == $id)
+                                echo '<span class="text-success">Current user</span>';
 
                             else
-                            echo "<button class=\"btn btn-sm d-inline-flex align-items-center btn-rounded\" type=\"submit\" name=\"delete\" value=\"$id\"><i class='mdi mdi-delete'></i></button>"
+                                echo "<button class=\"btn btn-sm d-inline-flex align-items-center btn-rounded\" type=\"submit\" name=\"delete\" value=\"$id\"><i class='mdi mdi-delete'></i></button>"
                             ?>
                         </td>
                     </tr>
