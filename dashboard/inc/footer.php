@@ -47,9 +47,6 @@
 <script src="../assets/js/pages/demo.dashboard.js"></script>
 <script src="../assets/js/pages/demo.datatable-init.js"></script>
 
-
-<script src="../assets/js/charts.js"></script>
-
 <!-- end demo js-->
 <script>
     var user = document.getElementById('viewUser')
@@ -82,6 +79,25 @@
         var mo = $(this)
         mo.find('.desc').text(desc)
     })
+</script>
+
+<!-- Gender stats of user -->
+<script type=''>
+    <?php $gender = getGender();?>
+    // pie
+    var options = {
+        <?php
+        echo "series: [$gender[0],$gender[1],$gender[2]],"
+        ?>
+        chart: {
+            width: 380,
+            type: 'pie',
+        },
+        labels: ['Male','Female','Not specify'],
+    };
+
+    var chart = new ApexCharts(document.querySelector("#gender-pie-user"), options);
+    chart.render();
 </script>
 </body>
 
