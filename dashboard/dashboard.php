@@ -257,7 +257,7 @@ $gender = getGender();
 
 
         <div class="row">
-            <div class="col-xl-6 col-lg-12 order-lg-2 order-xl-1">
+            <div class="col-xl-4 col-lg-12 order-lg-2 order-xl-1">
                 <div class="card">
                     <div class="card-body">
                         <a href="" class="btn btn-sm btn-link float-end">Export
@@ -366,28 +366,13 @@ $gender = getGender();
                 </div> <!-- end card-->
             </div> <!-- end col-->
 
-            <div class="col-xl-3 col-lg-6 order-lg-1">
+            <div class="col-xl-4 col-lg-6 order-lg-1">
                 <div class="card">
                     <div class="card-body">
-                        <div class="dropdown float-end">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                            </div>
-                        </div>
                         <h4 class="header-title">Gender distrubtion for users</h4>
-
-                        <div id="gender-pie-user" class="apex-charts mb-4 mt-4" data-colors="#536de6,#10c469,#ff5b5b,#f9c851"></div>
-
+                        <div dir="ltr">
+                            <div id="gender-pie-user" class="apex-charts" data-colors="#536de6,#10c469,#ff5b5b,#f9c851"></div>
+                        </div>
 
                         <div class="chart-widget-list">
                             <p>
@@ -396,18 +381,18 @@ $gender = getGender();
                             </p>
                             <p>
                                 <i class="mdi mdi-square" style='color:#00E396'></i> Female
-                                <span class="float-end"><?php echo $gender[1]?></span>
+                                <span class="float-end"><?php echo $gender[1] ?></span>
                             </p>
                             <p>
                                 <i class="mdi mdi-square" style='color:#FEB019'></i> Not specify
-                                <span class="float-end"><?php echo $gender[2]?></span>
+                                <span class="float-end"><?php echo $gender[2] ?></span>
                             </p>
                         </div>
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div> <!-- end col-->
 
-            <div class="col-xl-3 col-lg-6 order-lg-1">
+            <div class="col-xl-4 col-lg-6 order-lg-1">
                 <div class="card">
                     <div class="card-body">
                         <div class="dropdown float-end">

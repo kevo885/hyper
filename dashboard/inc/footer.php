@@ -26,6 +26,7 @@
 </div>
 <!-- END Container -->
 <!-- bundle -->
+<!-- Gender stats of user -->
 <script src="../assets/js/vendor.min.js"></script>
 <script src="../assets/js/app.min.js"></script>
 
@@ -80,27 +81,45 @@
         mo.find('.desc').text(desc)
     })
 </script>
-
 <!-- Gender stats of user -->
 <script type=''>
-    <?php $gender = getGender(); ?>
-    // pie
-    var options = {
-        <?php
-        echo "series: [$gender[0],$gender[1],$gender[2]],"
-        ?>
-        chart: {
-            width: 380,
-            type: 'pie',
-        },
-        labels: ['Male','Female','Not specify'],
-        theme: { 
-      palette: 'palette1', 
-  }
-    };
+var options = {
+    chart: {
+        height: 320,
+        type: 'pie',
+    }, 
+    <?php echo "series: [$gender[0],$gender[1],$gender[2]],"?>
+    labels: ['Male','Female','Not specify'],
+    legend: {
+        show: true,
+        position: 'bottom',
+        horizontalAlign: 'center',
+        verticalAlign: 'middle',
+        floating: false,
+        fontSize: '14px',
+        offsetX: 0,
+        offsetY: 7
+    },
+    responsive: [{
+        breakpoint: 600,
+        options: {
+            chart: {
+                height: 240
+            },
+            legend: {
+                show: false
+            },
+        }
+    }]
 
-    var chart = new ApexCharts(document.querySelector("#gender-pie-user"), options);
-    chart.render();
+}
+
+var chart = new ApexCharts(
+    document.querySelector("#gender-pie-user"),
+    options
+);
+
+chart.render();
 </script>
 </body>
 
