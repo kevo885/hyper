@@ -83,7 +83,7 @@
 
 <!-- Gender stats of user -->
 <script type=''>
-    <?php $gender = getGender();?>
+    <?php $gender = getGender(); ?>
     // pie
     var options = {
         <?php
