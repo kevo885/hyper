@@ -17,7 +17,7 @@ include_once "inc/side-bar.php";
 
                         </ol>
                     </div>
-                    <h4 class="page-title">Data Tables</h4>
+                    <h4 class="page-title">Students</h4>
                 </div>
             </div>
         </div>
@@ -26,13 +26,12 @@ include_once "inc/side-bar.php";
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">Courses table</h4>
                         <div class="tab-content">
-                            <div class="tab-pane show active" id="alt-pagination-preview">
-                                <table id="alternative-page-datatable" class="table dt-responsive nowrap">
-                                   <?php //userTable();?>
-                                </table>
-                            </div> <!-- end preview-->
+                        <div class="tab-pane show active" id="alt-pagination-preview">
+                                        <?php studentTable(); ?>
+                                        </table>
+                                </form>
+                            </div>
                         </div> <!-- end tab-content-->
 
                     </div> <!-- end card body-->

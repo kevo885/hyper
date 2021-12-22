@@ -18,6 +18,21 @@ if (isset($_GET['id'])) {
     } else
         exit(mysqli_stmt_error($stmt));
 }
+else if (isset($_GET['studentID'])) {
+
+
+    $userID = $_GET['studentID'];
+    mysqli_stmt_prepare($stmt, "SELECT * from students where id = ?");
+    mysqli_stmt_bind_param($stmt, "i", $userID);
+
+    if (mysqli_stmt_execute($stmt)) {
+        mysqli_stmt_bind_result($stmt, $userID, $username, $password, $user_name, $dob, $phone, $gender, $age);
+        $date = date_create_from_format('Y-m-d', $dob);
+        $formatedDate = date_format($date, 'm/d/Y');
+        mysqli_stmt_fetch($stmt);
+    } else
+        exit(mysqli_stmt_error($stmt));
+}
 $date = date_create_from_format('Y-m-d', $dob);
 $formatedDate = date_format($date, 'm/d/Y');
 ?>
@@ -40,9 +55,17 @@ $formatedDate = date_format($date, 'm/d/Y');
     <div class="col-xl-4 col-xl-10 ">
         <div class="card text-center">
             <div class="card-body">
-                <?php if (isset($_GET['id']))
+                <?php 
+                if (isset($_GET['id']))
                     echo '<p class="page-title">
             <a href="users.php">
+                    <span class="text-gray"><span class="fas fa-arrow-left me-2"></span>Back
+                    </span>
+                </a>
+            </p>';
+            else if (isset($_GET['studentID']))
+                    echo '<p class="page-title">
+            <a href="students.php">
                     <span class="text-gray"><span class="fas fa-arrow-left me-2"></span>Back
                     </span>
                 </a>
@@ -54,7 +77,7 @@ $formatedDate = date_format($date, 'm/d/Y');
                 </button>
                 <h4 class="mb-0 mt-2"><?php echo $user_name ?></h4>
                 <p class="text-muted font-14"></p>
-                <?php if (!isset($_GET['id'])) {
+                <?php if (!isset($_GET['id']) && (!isset($_GET['studentID']))) {
                     echo '<a href="../inc/logout.php" class="btn btn-danger btn-sm mb-2 rounded-pill">
                     <i class="mdi mdi-logout me-1"></i>Logout</a>';
                 }

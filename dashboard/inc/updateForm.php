@@ -1,7 +1,10 @@
 <!-- Update user -->
 <div class="collapse" id="personalDetails">
-    <?php if (isset($_GET['id']))
+    <?php
+    if (isset($_GET['id']))
         echo "<form action=\"crud/update.php?id=$userID\" method=\"post\">";
+    else if (isset($_GET['studentID']))
+        echo "<form action=\"crud/update.php?studentID=$id\" method=\"post\">";
     else
         echo '<form action="crud/update.php" method="post">';
     ?>
@@ -69,7 +72,13 @@
             </div>
         </div>
     </div>
-    <button class="btn btn-primary rounded-pill mb-4" type="submit" name="updateUser">Save your changes</button>
+    <?php
+    if (isset($_GET['studentID']))
+        echo '<button class="btn btn-primary rounded-pill mb-4" type="submit" name="updateStudent">Save your changes</button>';
+
+    else
+        echo '<button class="btn btn-primary rounded-pill mb-4" type="submit" name="updateUser">Save your changes</button>';
+    ?>
     </form>
 </div>
 

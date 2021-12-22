@@ -79,7 +79,7 @@ $gender = getGender();
                                     <i class="mdi mdi-currency-usd widget-icon bg-success-lighten text-success"></i>
                                 </div>
                                 <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Average age of employees</h5>
-                                <h3 class="mt-3 mb-3"><?php echo avgAgeUser() ?></h3>
+                                <h3 class="mt-3 mb-3"><?php echo round(avgAgeUser(),2) ?></h3>
                                 <p class="mb-0 text-muted">
                                     <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> 7.00%</span>
                                     <span class="text-nowrap">Since last month</span>
@@ -110,21 +110,6 @@ $gender = getGender();
             <div class="col-xl-7 col-lg-6">
                 <div class="card card-h-100">
                     <div class="card-body">
-                        <div class="dropdown float-end">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                            </div>
-                        </div>
                         <h4 class="header-title mb-3">Projections Vs Actuals</h4>
 
                         <div dir="ltr">
@@ -142,21 +127,6 @@ $gender = getGender();
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
-                        <div class="dropdown float-end">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                            </div>
-                        </div>
                         <h4 class="header-title mb-3">Revenue</h4>
 
                         <div class="chart-content-bg">
@@ -198,21 +168,6 @@ $gender = getGender();
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
-                        <div class="dropdown float-end">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                            </div>
-                        </div>
                         <h4 class="header-title">Revenue By Location</h4>
                         <div class="mb-4 mt-4">
                             <div id="world-map-markers" style="height: 224px"></div>
@@ -260,9 +215,6 @@ $gender = getGender();
             <div class="col-xl-4 col-lg-12 order-lg-2 order-xl-1">
                 <div class="card">
                     <div class="card-body">
-                        <a href="" class="btn btn-sm btn-link float-end">Export
-                            <i class="mdi mdi-download ms-1"></i>
-                        </a>
                         <h4 class="header-title mt-2 mb-3">Top Selling Products</h4>
 
                         <div class="table-responsive">
@@ -395,23 +347,7 @@ $gender = getGender();
             <div class="col-xl-4 col-lg-6 order-lg-1">
                 <div class="card">
                     <div class="card-body">
-                        <div class="dropdown float-end">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                            </div>
-                        </div>
                         <h4 class="header-title mb-2">Recent Activity</h4>
-
                         <div data-simplebar style="max-height: 419px;">
                             <div class="timeline-alt pb-0">
                                 <div class="timeline-item">
