@@ -169,7 +169,7 @@ function studentTable()
 ?>
     <div class="row mb-2">
         <div class="col-sm-4">
-            <button type="button" class="btn btn-primary rounded-pill mb-3" data-bs-toggle="modal" data-bs-target="#addStudents"><i class='mdi mdi-plus me-1'></i>Add User</button>
+            <button type="button" class="btn btn-primary rounded-pill mb-3" data-bs-toggle="modal" data-bs-target="#addStudents"><i class='mdi mdi-plus me-1'></i>Add Students</button>
         </div>
     </div>
     <form action="" method="post">
