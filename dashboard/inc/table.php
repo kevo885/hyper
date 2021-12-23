@@ -159,13 +159,13 @@ function studentTable()
         mysqli_stmt_prepare($stmt, $delete);
         mysqli_stmt_bind_param($stmt, "i", $_POST['delete']);
         if (!mysqli_stmt_execute($stmt))
-            exit("Could not delete user");
+            exit("Could not delete student");
     }
     mysqli_stmt_prepare($stmt, "select * from students");
     if (!mysqli_stmt_execute($stmt))
         exit(mysqli_stmt_error($stmt));
 
-    mysqli_stmt_bind_result($stmt, $id, $username, $password, $name, $dob, $phone, $gender, $age);
+    mysqli_stmt_bind_result($stmt, $id, $username, $email,$password, $name, $dob, $phone, $gender, $age, $gpa,$class);
 ?>
     <div class="row mb-2">
         <div class="col-sm-4">
@@ -178,10 +178,12 @@ function studentTable()
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Email</th>
                     <th>Username</th>
-                    <th>Date of birth (age)</th>
+                    <th>dob</th>
                     <th>Phone number</th>
                     <th>Gender</th>
+                    <th>Classification</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -195,10 +197,13 @@ function studentTable()
                     <tr>
                         <td><?php echo $id; ?></td>
                         <td><?php echo $name; ?></td>
+                        <td><?php echo $email; ?></td>
                         <td><?php echo $username; ?></td>
                         <td><?php echo "$formatedDate ($age)"; ?></td>
                         <td><?php echo $phone; ?></td>
                         <td><?php echo $gender; ?></td>
+                        <td><?php echo $class; ?></td>
+
                         <td>
                             <div class="btn-group">
                                 <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0 arrow-none" data-bs-toggle="dropdown"><i class='dripicons-dots-3'></i></button>

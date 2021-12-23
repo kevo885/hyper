@@ -17,16 +17,11 @@
         </div>
     </div>
 </footer>
-<!-- end Footer -->
-
 </div>
-<!-- content-page -->
-
-</div> <!-- end wrapper-->
 </div>
-<!-- END Container -->
-<!-- bundle -->
-<!-- Gender stats of user -->
+</div>
+
+<!-- main js -->
 <script src="../assets/js/vendor.min.js"></script>
 <script src="../assets/js/app.min.js"></script>
 
@@ -52,7 +47,9 @@
 <script src="../assets/js/modal.js"></script>
 
 <!-- charts js -->
-<script><?php require "../assets/js/charts.php";?></script>
+<script>
+    <?php require "../assets/js/charts.php"; ?>
+</script>
 </body>
 
 </html>

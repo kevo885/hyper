@@ -1,7 +1,7 @@
 <?php
 include_once "../../inc/.env.php";
 session_start();
-
+$class="";
 // convert phone number
 function checkPhone()
 {
@@ -35,6 +35,17 @@ function validDate()
   return $d && $d->format('m/d/Y') == $_POST['dob'];
 }
 
+// check if student enrolled in school was born after the school start date
+function dobPastEnrollemnt(){
+  $dob_no_year = date_create_from_format('m/d/Y', $_POST['dob']);
+  $dob = date_format($dob_no_year, 'm-d');
+  $schoolStartDate = date("m-d", mktime(0,0,0,9,1,0));
+
+  if($dob > $schoolStartDate)
+    return True;
+  else
+    return False;
+}
 // add course
 if (isset($_POST['addCourse'])) {
   $courseName = $_POST['courseName'];
@@ -82,7 +93,7 @@ if (isset($_POST['addCourse'])) {
     exit();
   }
 }
-// sign up / create users (students) 
+// Add students
 if (isset($_POST['addStudents'])) {
   // checks if username exists already
   $check_username = "SELECT * FROM students WHERE username=?";
@@ -115,16 +126,16 @@ if (isset($_POST['addStudents'])) {
     }
     // if valid date format 
     else {
-      $date = date_create_from_format('m/d/Y', $_POST['dob']);
-      $formatedDate = date_format($date, 'Y-m-d');
+      $dob = date_create_from_format('m/d/Y', $_POST['dob']);
+      $formatedDate = date_format($dob, 'Y-m-d');
 
       // gets age
       $age = date_diff(date_create($_POST['dob']), date_create('now'))->y;
 
       // prevent entering a dob greater than current day
       $currDate = date("Y-m-d");
-      if ($currDate < $formatedDate || ($age > 19 || $age < 13)) {
-        $_SESSION['message'] = "Error: Student age must be between 13-19 years old and date of birth cannot be in the future ";
+      if ($currDate < $formatedDate || ($age > 19 || $age < 14)) {
+        $_SESSION['message'] = "Error: Student age must be between 14-19 years old and date of birth cannot be in the future ";
         $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
         header("location: ../students.php");
         exit();
@@ -144,11 +155,22 @@ if (isset($_POST['addStudents'])) {
             exit();
           }
         }
-        $insert = "INSERT INTO students (id,username,password,name,dob,age,gender,phone) values (?,?,?,?,?,?,?,?)";
 
+        // provide classification based on age
+        if (($age == 14 || ($age == 15 && !dobPastEnrollemnt())))
+          $class = "Freshman";
+        else if ($age == 15 || ($age == 16 && !dobPastEnrollemnt()))
+          $class = "Sophmore";
+        else if ($age == 16 || ($age == 17 && !dobPastEnrollemnt()))
+          $class = "Junior";
+        else
+          $class = "Senior";
+
+        $insert = "INSERT INTO students (id,username,email,password,name,dob,age,class,gender,phone) values (?,?,?,?,?,?,?,?,?,?)";
+  
         // prepare for insert
         mysqli_stmt_prepare($stmt, $insert);
-        mysqli_stmt_bind_param($stmt, "issssiss", $id, $_POST['username'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['name'], $formatedDate, $age, $_POST['gender'], checkPhone());
+        mysqli_stmt_bind_param($stmt, "isssssisss", $id, $_POST['username'], $_POST['email'],password_hash($_POST['username'], PASSWORD_DEFAULT), $_POST['name'], $formatedDate, $age, $class,$_POST['gender'], checkPhone());
 
         if (!mysqli_stmt_execute($stmt)) {
           $_SESSION['message'] = mysqli_stmt_error($stmt);

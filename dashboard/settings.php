@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
     mysqli_stmt_bind_param($stmt, "i", $userID);
 
     if (mysqli_stmt_execute($stmt)) {
-        mysqli_stmt_bind_result($stmt, $userID, $username, $password, $user_name, $dob, $phone, $gender, $age);
+        mysqli_stmt_bind_result($stmt, $userID, $username, $password, $name, $dob, $phone, $gender, $age);
         $date = date_create_from_format('Y-m-d', $dob);
         $formatedDate = date_format($date, 'm/d/Y');
         mysqli_stmt_fetch($stmt);
@@ -26,7 +26,7 @@ else if (isset($_GET['studentID'])) {
     mysqli_stmt_bind_param($stmt, "i", $userID);
 
     if (mysqli_stmt_execute($stmt)) {
-        mysqli_stmt_bind_result($stmt, $userID, $username, $password, $user_name, $dob, $phone, $gender, $age);
+        mysqli_stmt_bind_result($stmt, $id, $username, $email,$password, $name, $dob, $phone, $gender, $age, $gpa,$class);
         $date = date_create_from_format('Y-m-d', $dob);
         $formatedDate = date_format($date, 'm/d/Y');
         mysqli_stmt_fetch($stmt);
@@ -75,7 +75,7 @@ $formatedDate = date_format($date, 'm/d/Y');
                     <span class="fas fa-user"></span>
 
                 </button>
-                <h4 class="mb-0 mt-2"><?php echo $user_name ?></h4>
+                <h4 class="mb-0 mt-2"><?php echo $name ?></h4>
                 <p class="text-muted font-14"></p>
                 <?php if (!isset($_GET['id']) && (!isset($_GET['studentID']))) {
                     echo '<a href="../inc/logout.php" class="btn btn-danger btn-sm mb-2 rounded-pill">
@@ -102,7 +102,7 @@ $formatedDate = date_format($date, 'm/d/Y');
                         </thead>
                         <tbody>
                             <tr>
-                                <td><?php echo $user_name ?></td>
+                                <td><?php echo $name ?></td>
                                 <td><?php echo $userID ?></td>
                                 <td><?php echo $username ?></td>
                                 <td><?php echo $phone ?></td>
