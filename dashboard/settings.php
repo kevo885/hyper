@@ -18,8 +18,7 @@ if (isset($_GET['id'])) {
         mysqli_stmt_fetch($stmt);
     } else
         exit(mysqli_stmt_error($stmt));
-}
-else if (isset($_GET['studentID'])) {
+} else if (isset($_GET['studentID'])) {
 
 
     $id = $_GET['studentID'];
@@ -27,7 +26,7 @@ else if (isset($_GET['studentID'])) {
     mysqli_stmt_bind_param($stmt, "i", $id);
 
     if (mysqli_stmt_execute($stmt)) {
-        mysqli_stmt_bind_result($stmt, $id, $username, $email,$password, $name, $dob, $phone, $gender, $age, $gpa,$class);
+        mysqli_stmt_bind_result($stmt, $id, $username, $email, $password, $name, $dob, $phone, $gender, $age, $gpa, $class);
         $date = date_create_from_format('Y-m-d', $dob);
         $formatedDate = date_format($date, 'm/d/Y');
         mysqli_stmt_fetch($stmt);
@@ -56,7 +55,7 @@ $formatedDate = date_format($date, 'm/d/Y');
     <div class="col-xl-4 col-xl-10 ">
         <div class="card text-center">
             <div class="card-body">
-                <?php 
+                <?php
                 if (isset($_GET['id']))
                     echo '<p class="page-title">
             <a href="users.php">
@@ -64,7 +63,7 @@ $formatedDate = date_format($date, 'm/d/Y');
                     </span>
                 </a>
             </p>';
-            else if (isset($_GET['studentID']))
+                else if (isset($_GET['studentID']))
                     echo '<p class="page-title">
             <a href="students.php">
                     <span class="text-gray"><span class="fas fa-arrow-left me-2"></span>Back
@@ -82,10 +81,14 @@ $formatedDate = date_format($date, 'm/d/Y');
                     echo '<a href="../inc/logout.php" class="btn btn-danger btn-sm mb-2 rounded-pill">
                     <i class="mdi mdi-logout me-1"></i>Logout</a>';
                 }
-                ?>
-                <a class="btn btn-primary btn-sm mb-2 rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#personalDetails" aria-expanded="false" aria-controls="personalDetails">
-                    <i class="mdi mdi-chevron-down-circle-outline me-1"></i>Update</a>
-                <?php include_once "inc/updateForm.php"; ?>
+                if (isset($_GET['studentID']))
+                    echo ' <a class="btn btn-primary btn-sm mb-2 rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#updateStudents">
+                    <i class="mdi mdi-chevron-down-circle-outline me-1"></i>Update</a>';
+
+                   else
+                    echo ' <a class="btn btn-primary btn-sm mb-2 rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#updateUser">
+                    <i class="mdi mdi-chevron-down-circle-outline me-1"></i>Update</a>';
+                include_once "inc/updateForm.php"; ?>
 
                 <!-- user info table -->
                 <div class="table-responsive">
