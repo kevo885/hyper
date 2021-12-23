@@ -75,7 +75,8 @@ function userTable()
     </form>
 <?php  }
                 // modal 
-                include_once "inc/modal.php";
+                include_once "inc/addModal.php";
+                include_once "inc/viewModal.php"; 
 ?>
 </tbody>
 <?php  }
@@ -145,7 +146,8 @@ function coursesTable()
                     </tr>
     </form>
 <?php  }
-                include_once "inc/modal.php"; ?>
+                include_once "inc/addModal.php";
+                include_once "inc/viewModal.php";  ?>
 </tbody>
 <?php   }
 
@@ -226,7 +228,8 @@ function studentTable()
     </form>
 <?php  }
                 // modal 
-                include_once "inc/modal.php";
+                include_once "inc/addModal.php";
+                include_once "inc/viewModal.php"; 
 ?>
 </tbody>
 <?php  }

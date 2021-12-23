@@ -95,21 +95,21 @@ if (isset($_POST['addCourse'])) {
 }
 // Add students
 if (isset($_POST['addStudents'])) {
-  // checks if username exists already
-  $check_username = "SELECT * FROM students WHERE username=?";
+  // checks if username or email exists already
+  $check_username = "SELECT * FROM students WHERE username=? or email=?";
 
   // preparing statement
   mysqli_stmt_prepare($stmt, $check_username);
-  mysqli_stmt_bind_param($stmt, 's', $_POST['username']);
+  mysqli_stmt_bind_param($stmt, 'ss', $_POST['username'],$_POST['email']);
 
   if (!mysqli_stmt_execute($stmt))
     exit(mysqli_stmt_error($stmt));
 
   mysqli_stmt_store_result($stmt);
 
-  // if username is taken, print error 
+  // if username or email is taken, print error 
   if (mysqli_stmt_num_rows($stmt) > 0) {
-    $_SESSION['message'] = "ERROR: username already taken.";
+    $_SESSION['message'] = "ERROR: username or email already taken.";
     $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
     header("location: ../students.php");
     exit();
