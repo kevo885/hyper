@@ -22,14 +22,14 @@
                                 
                             </button>
                             <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                                <span class="mb-0 font-small fw-bold text-gray-900"><?php echo $user_name;?></span>
+                                <span class="mb-0 font-small fw-bold text-gray-900"><?php echo $name;?></span>
                             </div>
                         </div>
                     </a>                    
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown" aria-labelledby="topbar-userdrop">
                         <!-- item-->
                         <div class=" dropdown-header noti-title">
-                            <h6 class="text-overflow m-0">Welcome <?php echo "$user_name !";?></h6>
+                            <h6 class="text-overflow m-0">Welcome <?php echo "$name !";?></h6>
                         </div>
                         <!-- item-->
                         <a href="settings.php" class="dropdown-item notify-item">

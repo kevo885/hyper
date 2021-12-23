@@ -17,6 +17,6 @@ else if (isset($_SESSION['id'])) {
         exit(mysqli_stmt_error($stmt));
 
     mysqli_stmt_store_result($stmt);
-    mysqli_stmt_bind_result($stmt, $userID, $username, $password, $user_name, $dob, $phone, $gender, $age);
+    mysqli_stmt_bind_result($stmt, $id, $username, $password, $name, $dob, $phone, $gender, $age);
     mysqli_stmt_fetch($stmt);
 }

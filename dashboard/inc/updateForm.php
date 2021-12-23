@@ -2,7 +2,7 @@
 <div class="collapse" id="personalDetails">
     <?php
     if (isset($_GET['id']))
-        echo "<form action=\"crud/update.php?id=$userID\" method=\"post\">";
+        echo "<form action=\"crud/update.php?id=$id\" method=\"post\">";
     else if (isset($_GET['studentID']))
         echo "<form action=\"crud/update.php?studentID=$id\" method=\"post\">";
     else

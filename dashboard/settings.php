@@ -2,16 +2,17 @@
 include_once "inc/head.php";
 include_once "inc/header.php";
 include_once "inc/side-bar.php";
+include_once "inc/auth.php";
 
 if (isset($_GET['id'])) {
 
 
-    $userID = $_GET['id'];
+    $id = $_GET['id'];
     mysqli_stmt_prepare($stmt, "SELECT * from user where id = ?");
-    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_bind_param($stmt, "i", $id);
 
     if (mysqli_stmt_execute($stmt)) {
-        mysqli_stmt_bind_result($stmt, $userID, $username, $password, $name, $dob, $phone, $gender, $age);
+        mysqli_stmt_bind_result($stmt, $id, $username, $password, $name, $dob, $phone, $gender, $age);
         $date = date_create_from_format('Y-m-d', $dob);
         $formatedDate = date_format($date, 'm/d/Y');
         mysqli_stmt_fetch($stmt);
@@ -21,9 +22,9 @@ if (isset($_GET['id'])) {
 else if (isset($_GET['studentID'])) {
 
 
-    $userID = $_GET['studentID'];
+    $id = $_GET['studentID'];
     mysqli_stmt_prepare($stmt, "SELECT * from students where id = ?");
-    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_bind_param($stmt, "i", $id);
 
     if (mysqli_stmt_execute($stmt)) {
         mysqli_stmt_bind_result($stmt, $id, $username, $email,$password, $name, $dob, $phone, $gender, $age, $gpa,$class);
@@ -103,7 +104,7 @@ $formatedDate = date_format($date, 'm/d/Y');
                         <tbody>
                             <tr>
                                 <td><?php echo $name ?></td>
-                                <td><?php echo $userID ?></td>
+                                <td><?php echo $id ?></td>
                                 <td><?php echo $username ?></td>
                                 <td><?php echo $phone ?></td>
                                 <td><?php echo $formatedDate ?></td>

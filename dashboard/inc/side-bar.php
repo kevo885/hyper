@@ -10,7 +10,7 @@
             <div class="leftbar-user">
                 <span class="account-user-avatar">
                     <i class="fas fa-user fa-2x"></i>
-                </span> <span class="leftbar-user-name"><?php echo $user_name ?></span>
+                </span> <span class="leftbar-user-name"><?php echo $name ?></span>
             </div>
 
             <!--- Sidemenu -->
