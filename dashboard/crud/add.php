@@ -2,33 +2,6 @@
 include_once "../../inc/.env.php";
 session_start();
 $class="";
-// convert phone number
-function checkPhone()
-{
-  $possibleNumbers = explode("\n", '(111) 222-3333
-       ((111) 222-3333
-       1112223333
-       111 222-3333
-       111-222-3333
-       (111)2223333
-       +11234567890
-           1-8002353551
-           123-456-7890   -Hello!
-       +1 - 1234567890 
-       ');
-
-  if (preg_match('/.*(\d{3})[^\d]{0,7}(\d{3})[^\d]{0,7}(\d{4}).*/', $_POST['phone'])) {
-    foreach ($possibleNumbers as $numbers) {
-      $phone = preg_replace('~.*(\d{3})[^\d]{0,7}(\d{3})[^\d]{0,7}(\d{4}).*~', '$1-$2-$3', $_POST['phone']) . "\n";
-    }
-    return $phone;
-  } else {
-    $_SESSION['message'] = "ERROR: Invalid phone number";
-    $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-    header("location: ../students.php");
-    exit();
-  }
-}
 function validDate()
 {
   $d = DateTime::createFromFormat('m/d/Y', $_POST['dob']);
@@ -170,7 +143,7 @@ if (isset($_POST['addStudents'])) {
   
         // prepare for insert
         mysqli_stmt_prepare($stmt, $insert);
-        mysqli_stmt_bind_param($stmt, "isssssisss", $id, $_POST['username'], $_POST['email'],password_hash($_POST['username'], PASSWORD_DEFAULT), $_POST['name'], $formatedDate, $age, $class,$_POST['gender'], checkPhone());
+        mysqli_stmt_bind_param($stmt, "isssssisss", $id, $_POST['username'], $_POST['email'],password_hash($_POST['username'], PASSWORD_DEFAULT), $_POST['name'], $formatedDate, $age, $class,$_POST['gender'], $_POST['phone']);
 
         if (!mysqli_stmt_execute($stmt)) {
           $_SESSION['message'] = mysqli_stmt_error($stmt);

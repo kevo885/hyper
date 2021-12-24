@@ -1,6 +1,7 @@
 <?php
 include_once "../../inc/.env.php";
-include_once "../inc/function.php";
+include_once "../inc/updateFunctions.php";
+include_once "../../inc/alerts.php";
 session_start();
 $class = "";
 // update user info

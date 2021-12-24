@@ -3,7 +3,6 @@ ob_start();
 session_start();
 include_once "table.php";
 include_once "auth.php";
-include_once "function.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

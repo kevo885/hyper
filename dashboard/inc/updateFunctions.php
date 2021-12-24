@@ -1,10 +1,4 @@
 <?php
-function message($alert, $message)
-{
-    $_SESSION['alert'] = $alert;
-    $_SESSION['message'] .= $message;
-}
-
 function validDate()
 {
     $d = DateTime::createFromFormat('m/d/Y', $_POST['newDob']);
@@ -20,10 +14,18 @@ function checkAge()
     // prevent entering a dob greater than current day
     $currDate = date("Y-m-d");
 
-    if ($currDate < $formatedDate || $newAge < 14 || $newAge > 19)
+    if(isset($_GET['studentID'])){
+        if ($currDate < $formatedDate || $newAge < 14 || $newAge > 19)
         return True;
     else
         return False;
+    }
+    else{
+        if ($currDate < $formatedDate || $newAge < 18 || $newAge > 65)
+        return True;
+    else
+        return False;
+    }
 }
 
 function dobPastEnrollemnt()
