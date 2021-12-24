@@ -1,12 +1,8 @@
 <?php
 include_once "../../inc/.env.php";
+include_once "../inc/function.php";
 session_start();
-
-function validDate()
-{
-    $d = DateTime::createFromFormat('m/d/Y', $_POST['newDob']);
-    return $d && $d->format('m/d/Y') == $_POST['newDob'];
-}
+$class = "";
 // update user info
 if (isset($_POST['updateUser'])) {
 
@@ -42,8 +38,8 @@ if (isset($_POST['updateUser'])) {
 
     // if no input field was entered before submitting form
     if (empty($newName) && empty($newUsername) && empty($_POST['newPassword']) && empty($newPhone) && empty($newDob) && empty($newGender)) {
-        $_SESSION['alert'] = "alert alert-warning alert-dismissible fade show";
-        $_SESSION['message'] = "Warning: User profile not updated - did not enter any inputs";
+        message("alert alert-warning alert-dismissible fade show", "Warning: did not enter any input");
+
         if (isset($_GET['id']))
             header("location: ../settings.php?id=$id");
         else
@@ -55,15 +51,13 @@ if (isset($_POST['updateUser'])) {
         mysqli_stmt_prepare($stmt, "UPDATE user set name=? where id=?");
         mysqli_stmt_bind_param($stmt, "ss", $newName, $id);
         if (mysqli_stmt_execute($stmt)) {
-            $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-            $_SESSION['message'] .= "Success! Updated name";
+            message("alert alert-danger alert-dismissible fade show", "updated name ");
             if (isset($_GET['id']))
                 header("location: ../settings.php?id=$id");
             else
                 header("location: ../settings.php");
         } else {
-            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-            $_SESSION['message'] .= "Error: Failed to update name";
+            message("alert alert-danger alert-dismissible fade show", "failed to update name ");
             if (isset($_GET['id']))
                 header("location: ../settings.php?id=$id");
             else
@@ -89,23 +83,20 @@ if (isset($_POST['updateUser'])) {
             mysqli_stmt_prepare($stmt, "UPDATE user set username=? where id=?");
             mysqli_stmt_bind_param($stmt, "ss", $newUsername, $id);
             if (mysqli_stmt_execute($stmt)) {
-                $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-                $_SESSION['message'] .= "Success! Updated username.";
+                message("alert alert-success alert-dismissible fade show", "updated username");
                 if (isset($_GET['id']))
                     header("location: ../settings.php?id=$id");
                 else
                     header("location: ../settings.php");
             } else {
-                $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-                $_SESSION['message'] .= "Error: Failed to update username";
+                message("alert alert-danger alert-dismissible fade show", "failed to update username ");
                 if (isset($_GET['id']))
                     header("location: ../settings.php?id=$id");
                 else
                     header("location: ../settings.php");
             }
         } else {
-            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-            $_SESSION['message'] .= "Error: Chosen username already exists. Please select a different username";
+            message("alert alert-danger alert-dismissible fade show", "failed to update username - username already exists");
             if (isset($_GET['id']))
                 header("location: ../settings.php?id=$id");
             else
@@ -117,15 +108,13 @@ if (isset($_POST['updateUser'])) {
         mysqli_stmt_prepare($stmt, "UPDATE user set password=? where id=?");
         mysqli_stmt_bind_param($stmt, "ss", $newPassword, $id);
         if (mysqli_stmt_execute($stmt)) {
-            $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-            $_SESSION['message'] .= "Success! Updated password.";
+            message("alert alert-success alert-dismissible fade show", "updated password");
             if (isset($_GET['id']))
                 header("location: ../settings.php?id=$id");
             else
                 header("location: ../settings.php");
         } else {
-            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-            $_SESSION['message'] .= "Error: Failed to update password";
+            message("alert alert-danger alert-dismissible fade show", "failed to update password");
             if (isset($_GET['id']))
                 header("location: ../settings.php?id=$id");
             else
@@ -138,15 +127,13 @@ if (isset($_POST['updateUser'])) {
         mysqli_stmt_prepare($stmt, "UPDATE user set gender=? where id=?");
         mysqli_stmt_bind_param($stmt, "ss", $newGender, $id);
         if (mysqli_stmt_execute($stmt)) {
-            $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-            $_SESSION['message'] .= "Success! Updated gender.";
+            message("alert alert-success alert-dismissible fade show", "failed to update gender ");
             if (isset($_GET['id']))
                 header("location: ../settings.php?id=$id");
             else
                 header("location: ../settings.php");
         } else {
-            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-            $_SESSION['message'] .= "Error: Failed to update gender";
+            message("alert alert-danger alert-dismissible fade show", "failed to update gender ");
             if (isset($_GET['id']))
                 header("location: ../settings.php?id=$id");
             else
@@ -159,15 +146,14 @@ if (isset($_POST['updateUser'])) {
         mysqli_stmt_prepare($stmt, "UPDATE user set phone=? where id=?");
         mysqli_stmt_bind_param($stmt, "ss", $newPhone, $id);
         if (mysqli_stmt_execute($stmt)) {
-            $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-            $_SESSION['message'] .= "Success! Updated Phone.";
+            message("alert alert-success alert-dismissible fade show","updated phone ");
+
             if (isset($_GET['id']))
                 header("location: ../settings.php?id=$id");
             else
                 header("location: ../settings.php");
         } else {
-            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-            $_SESSION['message'] .= "Error: Failed to update Phone - check for valid format.";
+            message("alert alert-danger alert-dismissible fade show", "failed to update phone ");
             if (isset($_GET['id']))
                 header("location: ../settings.php?id=$id");
             else
@@ -179,8 +165,7 @@ if (isset($_POST['updateUser'])) {
 
         // if invalid date 
         if (!validDate()) {
-            $_SESSION['message'] = "Error: Invalid date - must be in format mm/dd/yyyy";
-            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
+            message("alert alert-danger alert-dismissible fade show", "failed to update birthday - check formatting ");
             if (isset($_GET['id']))
                 header("location: ../settings.php?id=$id");
             else
@@ -196,8 +181,7 @@ if (isset($_POST['updateUser'])) {
             $currDate = date("Y-m-d");
 
             if ($currDate < $formatedDate || $newAge < 18 || $newAge > 65) {
-                $_SESSION['message'] = "Error: Age must be in range 18-65";
-                $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
+                message("alert alert-danger alert-dismissible fade show", "Error: age must be between 18-65");
                 if (isset($_GET['id']))
                     header("location: ../settings.php?id=$id");
                 else
@@ -206,15 +190,14 @@ if (isset($_POST['updateUser'])) {
                 mysqli_stmt_prepare($stmt, "UPDATE user set dob=?, age=? where id=?");
                 mysqli_stmt_bind_param($stmt, "sis", $formatedDate, $newAge, $id);
                 if (mysqli_stmt_execute($stmt)) {
-                    $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-                    $_SESSION['message'] .= "Success! Updated Birthday.";
+                    message("alert alert-success alert-dismissible fade show", "updated birthday ");
+
                     if (isset($_GET['id']))
                         header("location: ../settings.php?id=$id");
                     else
                         header("location: ../settings.php");
                 } else {
-                    $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-                    $_SESSION['message'] .= "Error: Failed to update birthday";
+                    message("alert alert-danger alert-dismissible fade show", "Error: Failed to update birthday ");
                     if (isset($_GET['id']))
                         header("location: ../settings.php?id=$id");
                     else
@@ -251,29 +234,26 @@ if (isset($_POST['updateStudent'])) {
 
     // if no input field was entered before submitting form
     if (empty($newName) && empty($newUsername) && empty($_POST['newPassword']) && empty($newPhone) && empty($newDob) && empty($newGender) && empty($newEmail)) {
-        $_SESSION['alert'] = "alert alert-warning alert-dismissible fade show";
-        $_SESSION['message'] = "Warning: User profile not updated - did not enter any inputs";
+        message("alert alert-warning alert-dismissible fade show", "Warning: User profile not updated - did not enter any inputs");
         header("location: ../settings.php?studentID=$studentID");
         exit();
     }
     if (!empty($newName)) {
         // update name
-        mysqli_stmt_prepare($stmt, "UPDATE user set name=? where id=?");
-        mysqli_stmt_bind_param($stmt, "ss", $newName, $id);
+        mysqli_stmt_prepare($stmt, "UPDATE students set name=? where id=?");
+        mysqli_stmt_bind_param($stmt, "ss", $newName, $studentID);
         if (mysqli_stmt_execute($stmt)) {
-            $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-            $_SESSION['message'] .= "Success! Updated name";
-            header("location: ../settings.php?studentID=$id");
+            message("alert alert-success alert-dismissible fade show", "Updated name ");
+            header("location: ../settings.php?studentID=$studentID");
         } else {
-            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-            $_SESSION['message'] .= "Error: Failed to update name";
-            header("location: ../settings.php?studentID=$id");
+            message("alert alert-danger alert-dismissible fade show", "failed to update name" );
+            header("location: ../settings.php?studentID=$studentID");
         }
     }
     // update username
     if (!empty($newUsername)) {
         $exists = false;
-        mysqli_stmt_prepare($stmt, "SELECT username FROM user");
+        mysqli_stmt_prepare($stmt, "SELECT username FROM students");
         if (mysqli_stmt_execute($stmt)) {
             mysqli_stmt_bind_result($stmt, $currUsername);
             while (mysqli_stmt_fetch($stmt)) {
@@ -286,99 +266,90 @@ if (isset($_POST['updateStudent'])) {
             exit(mysqli_stmt_error($stmt));
 
         if (!$exists) {
-            mysqli_stmt_prepare($stmt, "UPDATE user set username=? where id=?");
-            mysqli_stmt_bind_param($stmt, "ss", $newUsername, $id);
+            mysqli_stmt_prepare($stmt, "UPDATE students set username=? where id=?");
+            mysqli_stmt_bind_param($stmt, "ss", $newUsername, $studentID);
             if (mysqli_stmt_execute($stmt)) {
-                $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-                $_SESSION['message'] .= "Success! Updated username.";
-                header("location: ../settings.php?studentID=$id");
+                message("alert alert-success alert-dismissible fade show", "updated username ");
+                header("location: ../settings.php?studentID=$studentID");
             } else {
-                $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-                $_SESSION['message'] .= "Error: Failed to update username";
-                header("location: ../settings.php?studentID=$id");
+                message("alert alert-danger alert-dismissible fade show", "failed to update username ");
+                header("location: ../settings.php?studentID=$studentID");
             }
         } else {
-            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-            $_SESSION['message'] .= "Error: Chosen username already exists. Please select a different username";
-            header("location: ../settings.php?studentID=$id");
+            message("alert alert-danger alert-dismissible fade show", "Error: Chosen username already exists ");
+            header("location: ../settings.php?studentID=$studentID");
         }
     }
     // update password
     if (!empty($_POST['newPassword'])) {
-        mysqli_stmt_prepare($stmt, "UPDATE user set password=? where id=?");
-        mysqli_stmt_bind_param($stmt, "ss", $newPassword, $id);
+        mysqli_stmt_prepare($stmt, "UPDATE students set password=? where id=?");
+        mysqli_stmt_bind_param($stmt, "ss", $newPassword, $studentID);
         if (mysqli_stmt_execute($stmt)) {
-            $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-            $_SESSION['message'] .= "Success! Updated password.";
-            header("location: ../settings.php?studentID=$id");
+            message("alert alert-success alert-dismissible fade show", "updated password ");
+            header("location: ../settings.php?studentID=$studentID");
         } else {
-            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-            $_SESSION['message'] .= "Error: Failed to update password";
-            header("location: ../settings.php?studentID=$id");
+            message("alert alert-danger alert-dismissible fade show", "failed to update password ");
+            header("location: ../settings.php?studentID=$studentID");
         }
     }
 
     // update gender
     if (!empty($newGender)) {
-        mysqli_stmt_prepare($stmt, "UPDATE user set gender=? where id=?");
-        mysqli_stmt_bind_param($stmt, "ss", $newGender, $id);
+        mysqli_stmt_prepare($stmt, "UPDATE students set gender=? where id=?");
+        mysqli_stmt_bind_param($stmt, "ss", $newGender, $studentID);
         if (mysqli_stmt_execute($stmt)) {
-            $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-            $_SESSION['message'] .= "Success! Updated gender.";
-            header("location: ../settings.php?studentID=$id");
+            message("alert alert-success alert-dismissible fade show", "updated gender ");
+            header("location: ../settings.php?studentID=$studentID");
         } else {
-            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-            $_SESSION['message'] .= "Error: Failed to update gender";
-            header("location: ../settings.php?studentID=$id");
+            message("alert alert-danger alert-dismissible fade show", "failed to update gender ");
+            header("location: ../settings.php?studentID=$studentID");
         }
     }
 
     // update phone
     if (!empty($newPhone)) {
-        mysqli_stmt_prepare($stmt, "UPDATE user set phone=? where id=?");
-        mysqli_stmt_bind_param($stmt, "ss", $newPhone, $id);
+        mysqli_stmt_prepare($stmt, "UPDATE students set phone=? where id=?");
+        mysqli_stmt_bind_param($stmt, "ss", $newPhone, $studentID);
         if (mysqli_stmt_execute($stmt)) {
-            $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-            $_SESSION['message'] .= "Success! Updated Phone.";
-            header("location: ../settings.php?studentID=$id");
+            message("alert alert-success alert-dismissible fade show", "updated phone ");
+            header("location: ../settings.php?studentID=$studentID");
         } else {
-            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-            $_SESSION['message'] .= "Error: Failed to update Phone - check for valid format.";
-            header("location: ../settings.php?studentID=$id");
+            message("alert alert-danger alert-dismissible fade show", "failed to update Phone - check for valid format ");
+            header("location: ../settings.php?studentID=$studentID");
         }
     }
     // update date of birth
     if (!empty($newDob)) {
         // if invalid date 
         if (!validDate()) {
-            $_SESSION['message'] = "Error: Invalid date - must be in format mm/dd/yyyy";
-            $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-            header("location: ../settings.php?studentID=$id");
+            message("alert alert-danger alert-dismissible fade show", "Invalid date - must be in format mm/dd/yyyy ");
+            header("location: ../settings.php?studentID=$studentID");
         } else {
-            $date = date_create_from_format('m/d/Y', $newDob);
-            $formatedDate = date_format($date, 'Y-m-d');
-
-            // gets age
-            $newAge = date_diff(date_create($newDob), date_create('now'))->y;
-
-            // prevent entering a dob greater than current day
-            $currDate = date("Y-m-d");
-
-            if ($currDate < $formatedDate || $newAge < 18 || $newAge > 65) {
-                $_SESSION['message'] = "Error: Age must be in range 18-65";
-                $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-                header("location: ../settings.php?studentID=$id");
+            if (checkAge()) {
+                message("alert alert-danger alert-dismissible fade show", "failed to update age, age must be between 14-19 ");
+                header("location: ../settings.php?studentID=$studentID");
             } else {
-                mysqli_stmt_prepare($stmt, "UPDATE user set dob=?, age=? where id=?");
-                mysqli_stmt_bind_param($stmt, "sis", $formatedDate, $newAge, $id);
+                $date = date_create_from_format('m/d/Y', $newDob);
+                $formatedDate = date_format($date, 'Y-m-d');
+                $newAge = date_diff(date_create($newDob), date_create('now'))->y;
+                // provide classification based on age
+                if (($newAge == 14 || ($newAge == 15 && !dobPastEnrollemnt())))
+                    $class = "Freshman";
+                else if ($newAge == 15 || ($newAge == 16 && !dobPastEnrollemnt()))
+                    $class = "Sophmore";
+                else if ($newAge == 16 || ($newAge == 17 && !dobPastEnrollemnt()))
+                    $class = "Junior";
+                else
+                    $class = "Senior";
+
+                mysqli_stmt_prepare($stmt, "UPDATE students set dob=?, age=?,class=? where id=?");
+                mysqli_stmt_bind_param($stmt, "siss", $formatedDate, $newAge, $class, $studentID);
                 if (mysqli_stmt_execute($stmt)) {
-                    $_SESSION['alert'] = "alert alert-success alert-dismissible fade show";
-                    $_SESSION['message'] .= "Success! Updated Birthday.";
-                    header("location: ../settings.php?studentID=$id");
+                    message("alert alert-success alert-dismissible fade show", "updated dob, age, and class ");
+                    header("location: ../settings.php?studentID=$studentID");
                 } else {
-                    $_SESSION['alert'] = "alert alert-danger alert-dismissible fade show";
-                    $_SESSION['message'] .= "Error: Failed to update birthday";
-                    header("location: ../settings.php?studentID=$id");
+                    message("alert alert-danger alert-dismissible fade show", "Error: Failed to update birthday ");
+                    header("location: ../settings.php?studentID=$studentID");
                 }
             }
         }

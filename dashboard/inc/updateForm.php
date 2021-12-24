@@ -78,7 +78,7 @@
 
 <!-- Update students -->
 <div class="collapse" id="updateStudents">
-    <form action="crud/update.php?studentID=<?php echo $_GET['studentID'] ?>" method="post">;
+    <form action="crud/update.php?studentID=<?php echo $_GET['studentID'] ?>" method="post">
         <div class="row align-items-center">
             <div class="col-md-6 mb-3">
                 <div class="form-group mb-4">
@@ -111,10 +111,12 @@
             </div>
             <div class="col-md-6 mb-3">
                 <div class="form-group mb-4">
-                    <label>Phone</label>
+                    <label for="number">Password</label>
                     <div class="input-group">
-                        <span class="input-group-text" id="basic-addon2"><span class="mdi mdi-phone"></span></span>
-                        <input type="text" class="form-control" name='newPhone' placeholder="xxx-xxx-xxxx" data-toggle="input-mask" data-mask-format="000-000-0000">
+                        <div class="input-group-text" data-password="false">
+                            <span class="password-eye"></span>
+                        </div>
+                        <input type="password" name="newPassword" class='form-control' placeholder="Password">
                     </div>
                 </div>
             </div>
@@ -129,6 +131,14 @@
                 </div>
             </div>
             <div class="col-md-6 mb-3">
+                <label>Phone</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon2"><span class="mdi mdi-phone"></span></span>
+                    <input type="text" class="form-control" name='newPhone' placeholder="xxx-xxx-xxxx" data-toggle="input-mask" data-mask-format="000-000-0000">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
                 <label for="gender">Gender</label>
                 <div class="input-group">
                     <span class="input-group-text" id="basic-addon2"><span class="mdi mdi-gender-female"></span></span>
@@ -138,7 +148,6 @@
                         <option value="Female">Female</option>
                         <option value="N/A">Prefer not to say</option>
                     </select>
-                </div>
             </div>
         </div>
         <?php
