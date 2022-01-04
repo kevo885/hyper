@@ -52,6 +52,12 @@
                     </a>
                 </li>
                 <li class="side-nav-item">
+                    <a href="invoice.php" class="side-nav-link">
+                        <i class="uil-users-alt"></i>
+                        <span>Invoice</span>
+                    </a>
+                </li>
+                <li class="side-nav-item">
                     <a href="courses.php" class="side-nav-link">
                         <i class="uil-meeting-board"></i>
                         <span> Courses </span>
