@@ -52,8 +52,8 @@ include_once "inc/side-bar.php";
                                                 <address>
                                                     Kyle Tran<br>
                                                     795 ***** Ave, Suite ****<br>
-                                                    San Antonio, TX 78***<br>
-                                                    <abbr title="Phone">P:</abbr> (210)-xxx-xx43
+                                                    San Antonio, TX 78210<br>
+                                                    <abbr title="Phone">P:</abbr> (210)-xxx-1743
                                                 </address>
                                             </div> <!-- end col-->
             
@@ -62,8 +62,8 @@ include_once "inc/side-bar.php";
                                                 <address>
                                                     Kyle Tran<br>
                                                     795 ***** Ave, Suite ****<br>
-                                                    San Antonio, TX 78***<br>
-                                                    <abbr title="Phone">P:</abbr> (210)-xxx-xx43
+                                                    San Antonio, TX 78210<br>
+                                                    <abbr title="Phone">P:</abbr> (210)-xxx-1743
                                                 </address>
                                             </div> <!-- end col-->
             
@@ -84,7 +84,6 @@ include_once "inc/side-bar.php";
                                                             <th>Item</th>
                                                             <th>Description</th>
                                                             <th>Cost</th>
-                                                            <th class="text-end">Total</th>
                                                         </tr></thead>
                                                         <tbody>
                                                         <tr>
@@ -94,7 +93,6 @@ include_once "inc/side-bar.php";
                                                             </td>
                                                             <td>I will debug your php problem</td>
                                                             <td>$250.00</td>
-                                                            <td class="text-end">$250.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td>2</td>
@@ -103,7 +101,6 @@ include_once "inc/side-bar.php";
                                                             </td>
                                                             <td>I will code and provide up to 2 pages for your php website</td>
                                                             <td>$500.00</td>
-                                                            <td class="text-end">$500.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td>3</td>
@@ -112,7 +109,6 @@ include_once "inc/side-bar.php";
                                                             </td>
                                                             <td>I will work with you for 3 hours and go over details needed to design and launch your website</td>
                                                             <td>$425.00</td>
-                                                            <td class="text-end">$425.00</td>
                                                         </tr>
     
                                                         </tbody>
@@ -138,7 +134,7 @@ include_once "inc/side-bar.php";
                                             <div class="col-sm-6">
                                                 <div class="float-end mt-3 mt-sm-0">
                                                     <p><b>Sub-total:</b> <span class="float-end">$1175.00</span></p>
-                                                    <p><b>Tax (8.25):</b> <span class="float-end">$96.9375</span></p>
+                                                    <p><b>Tax (8.25):</b> <span class="float-end">$96.94</span></p>
                                                     <h3>$1271.94 USD</h3>
                                                 </div>
                                                 <div class="clearfix"></div>
