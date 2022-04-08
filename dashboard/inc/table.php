@@ -76,7 +76,7 @@ function userTable()
 <?php  }
                 // modal 
                 include_once "inc/addModal.php";
-                include_once "inc/viewModal.php"; 
+                include_once "inc/viewModal.php";
 ?>
 </tbody>
 <?php  }
@@ -167,7 +167,7 @@ function studentTable()
     if (!mysqli_stmt_execute($stmt))
         exit(mysqli_stmt_error($stmt));
 
-    mysqli_stmt_bind_result($stmt, $id, $username, $email,$password, $name, $dob, $phone, $gender, $age, $gpa,$class);
+    mysqli_stmt_bind_result($stmt, $id, $username, $email, $password, $name, $dob, $phone, $gender, $age, $gpa, $class);
 ?>
     <div class="row mb-2">
         <div class="col-sm-4">
@@ -229,7 +229,7 @@ function studentTable()
 <?php  }
                 // modal 
                 include_once "inc/addModal.php";
-                include_once "inc/viewModal.php"; 
+                include_once "inc/viewModal.php";
 ?>
 </tbody>
 <?php  }

@@ -147,7 +147,7 @@ if (isset($_POST['updateUser'])) {
         mysqli_stmt_prepare($stmt, "UPDATE user set phone=? where id=?");
         mysqli_stmt_bind_param($stmt, "ss", $newPhone, $id);
         if (mysqli_stmt_execute($stmt)) {
-            message("alert alert-info alert-dismissible fade show","updated phone ");
+            message("alert alert-info alert-dismissible fade show", "updated phone ");
 
             if (isset($_GET['id']))
                 header("location: ../settings.php?id=$id");
@@ -247,7 +247,7 @@ if (isset($_POST['updateStudent'])) {
             message("alert alert-info alert-dismissible fade show", "Updated name ");
             header("location: ../settings.php?studentID=$studentID");
         } else {
-            message("alert alert-danger alert-dismissible fade show", "failed to update name" );
+            message("alert alert-danger alert-dismissible fade show", "failed to update name");
             header("location: ../settings.php?studentID=$studentID");
         }
     }
@@ -380,7 +380,7 @@ if (isset($_POST['updateCourse'])) {
 
     // if no input field was entered before submitting form
     if (empty($newCourseName) && empty($newCourseNumber) && empty($newAge)  && empty($newCredit)  && empty($newDesc)  && empty($newCampus)  && empty($newSubject)  && empty($newAvaliablitiy)) {
-        message("alert alert-warning alert-dismissible fade show", "Warning: did not enter any input" );
+        message("alert alert-warning alert-dismissible fade show", "Warning: did not enter any input");
         header("location: ../modify-courses.php?courseID=$courseID");
         exit();
     }
@@ -400,10 +400,10 @@ if (isset($_POST['updateCourse'])) {
         mysqli_stmt_prepare($stmt, "UPDATE courses set descr=? where courseID=?");
         mysqli_stmt_bind_param($stmt, "ss", $newDesc, $courseID);
         if (mysqli_stmt_execute($stmt)) {
-            message("alert alert-info alert-dismissible fade show", "updated descrption " );
+            message("alert alert-info alert-dismissible fade show", "updated descrption ");
             header("location: ../modify-courses.php?courseID=$courseID");
         } else {
-            message("alert alert-danger alert-dismissible fade show", "failed to update descrption " );
+            message("alert alert-danger alert-dismissible fade show", "failed to update descrption ");
             header("location: ../modify-courses.php?courseID=$courseID");
         }
     }
@@ -411,10 +411,10 @@ if (isset($_POST['updateCourse'])) {
         mysqli_stmt_prepare($stmt, "UPDATE courses set credit=? where courseID=?");
         mysqli_stmt_bind_param($stmt, "is", $newCredit, $courseID);
         if (mysqli_stmt_execute($stmt)) {
-            message("alert alert-info alert-dismissible fade show", "updated credit hours " );
+            message("alert alert-info alert-dismissible fade show", "updated credit hours ");
             header("location: ../modify-courses.php?courseID=$courseID");
         } else {
-            message("alert alert-danger alert-dismissible fade show", "failed to update credit hours " );
+            message("alert alert-danger alert-dismissible fade show", "failed to update credit hours ");
             header("location: ../modify-courses.php?courseID=$courseID");
         }
     }
@@ -422,10 +422,10 @@ if (isset($_POST['updateCourse'])) {
         mysqli_stmt_prepare($stmt, "UPDATE courses set avaliable=? where courseID=?");
         mysqli_stmt_bind_param($stmt, "is", $newAvaliablitiy, $courseID);
         if (mysqli_stmt_execute($stmt)) {
-            message("alert alert-info alert-dismissible fade show", "updated avaliable seats " );
+            message("alert alert-info alert-dismissible fade show", "updated avaliable seats ");
             header("location: ../modify-courses.php?courseID=$courseID");
         } else {
-            message("alert alert-danger alert-dismissible fade show", "failed to update avaliable seats " );
+            message("alert alert-danger alert-dismissible fade show", "failed to update avaliable seats ");
             header("location: ../modify-courses.php?courseID=$courseID");
         }
     }
@@ -433,10 +433,10 @@ if (isset($_POST['updateCourse'])) {
         mysqli_stmt_prepare($stmt, "UPDATE courses set campus=? where courseID=?");
         mysqli_stmt_bind_param($stmt, "ss", $newCampus, $courseID);
         if (mysqli_stmt_execute($stmt)) {
-            message("alert alert-info alert-dismissible fade show", "updated campus " );
+            message("alert alert-info alert-dismissible fade show", "updated campus ");
             header("location: ../modify-courses.php?courseID=$courseID");
         } else {
-            message("alert alert-danger alert-dismissible fade show", "failed to update campus " );
+            message("alert alert-danger alert-dismissible fade show", "failed to update campus ");
             header("location: ../modify-courses.php?courseID=$courseID");
         }
     }
@@ -444,10 +444,10 @@ if (isset($_POST['updateCourse'])) {
         mysqli_stmt_prepare($stmt, "UPDATE courses set subject=? where courseID=?");
         mysqli_stmt_bind_param($stmt, "ss", $newSubject, $courseID);
         if (mysqli_stmt_execute($stmt)) {
-            message("alert alert-info alert-dismissible fade show", "updated subjec t" );
+            message("alert alert-info alert-dismissible fade show", "updated subjec t");
             header("location: ../modify-courses.php?courseID=$courseID");
         } else {
-            message("alert alert-danger alert-dismissible fade show", "failed to update subject " );
+            message("alert alert-danger alert-dismissible fade show", "failed to update subject ");
             header("location: ../modify-courses.php?courseID=$courseID");
         }
     }
@@ -470,10 +470,10 @@ if (isset($_POST['updateCourse'])) {
             mysqli_stmt_bind_param($stmt, "ss", $newCourseNumber, $courseID);
 
             if (mysqli_stmt_execute($stmt)) {
-                message("alert alert-info alert-dismissible fade show", "updated course number " );
+                message("alert alert-info alert-dismissible fade show", "updated course number ");
                 header("location: ../modify-courses.php?courseID=$courseID");
             } else {
-                message("alert alert-danger alert-dismissible fade show", "failed to update course number " );
+                message("alert alert-danger alert-dismissible fade show", "failed to update course number ");
                 header("location: ../modify-courses.php?courseID=$courseID");
             }
         } else {
